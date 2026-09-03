@@ -37,13 +37,3 @@ output "backend_asg_name" {
   description = "The name of the backend Auto Scaling Group"
   value       = aws_autoscaling_group.backend.name
 }
-
-output "frontend_key_name" {
-  description = "The name of the frontend key pair"
-  value       = aws_key_pair.frontend.key_name
-}
-
-output "backend_key_name" {
-  description = "The name of the backend key pair"
-  value       = aws_key_pair.backend.key_name
-} 
