@@ -1,0 +1,11 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform lock file should be committed
+!**/.terraform.lock.hcl
