@@ -18,8 +18,9 @@ resource "aws_db_instance" "main" {
   allocated_storage   = var.db_allocated_storage
   storage_type        = var.db_storage_type
   db_name             = var.db_name
+
   username            = var.db_username
-  password            = var.db_password
+  password            = random_password.db.result
   skip_final_snapshot = true
 
   vpc_security_group_ids = [data.terraform_remote_state.network.outputs.rds_sg_id]

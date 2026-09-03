@@ -18,8 +18,6 @@ output "rds_username" {
   value       = aws_db_instance.main.username
 }
 
-output "rds_password" {
-  description = "The master password for the RDS instance"
-  value       = aws_db_instance.main.password
-  sensitive   = true
-} 
+output "db_secret_arn" {
+  value = aws_secretsmanager_secret.db_credentials.arn
+}

@@ -1,7 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "three-tier-arch-aws-terraform"
+    bucket = "3tier-aws-terraform-jenkins-devops-pipeline"
     key    = "compute/terraform.tfstate"
     region = "us-east-1"
+    use_lockfile = true
   }
 } 

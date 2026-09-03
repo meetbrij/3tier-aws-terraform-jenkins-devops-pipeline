@@ -43,12 +43,6 @@ variable "db_username" {
   default     = "admin"
 }
 
-variable "db_password" {
-  description = "Database password"
-  type        = string
-  sensitive   = true
-}
-
 variable "db_allocated_storage" {
   description = "The allocated storage in gigabytes"
   type        = number
