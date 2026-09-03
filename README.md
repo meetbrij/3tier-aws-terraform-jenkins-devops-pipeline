@@ -69,13 +69,7 @@ The application is deployed across three tiers:
 
 ## Setup Instructions
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ajitinamdar-tech/three-tier-architecture-aws-terraform.git
-   cd three-tier-architecture-aws-terraform
-   ```
-
-2. **Run the setup script**
+**Run the setup script**
    ```bash
    chmod +x setup.sh
    ./setup.sh
