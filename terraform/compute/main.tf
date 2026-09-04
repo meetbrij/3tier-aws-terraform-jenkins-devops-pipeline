@@ -85,6 +85,10 @@ resource "aws_launch_template" "frontend" {
   image_id      = local.frontend_ami_id
   instance_type = var.frontend_instance_type
 
+  iam_instance_profile {
+    name = aws_iam_instance_profile.frontend_ec2_profile.name
+  }
+
   network_interfaces {
     associate_public_ip_address = false
     security_groups             = [data.terraform_remote_state.network.outputs.frontend_sg_id]
@@ -191,13 +195,20 @@ resource "aws_launch_template" "backend" {
   image_id      = local.backend_ami_id
   instance_type = var.backend_instance_type
 
+  iam_instance_profile {
+    name = aws_iam_instance_profile.backend_ec2_profile.name
+  }
+
   network_interfaces {
     associate_public_ip_address = false
     security_groups             = [data.terraform_remote_state.network.outputs.backend_sg_id]
   }
 
   user_data = base64encode(
-    file("${path.module}/backend_user_data.sh")
+    templatefile("${path.module}/backend_user_data.sh", {
+      db_secret_arn = data.terraform_remote_state.database.outputs.db_secret_arn
+      aws_region    = var.aws_region
+    })
   )
 
   tag_specifications {
