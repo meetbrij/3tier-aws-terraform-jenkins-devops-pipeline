@@ -38,6 +38,10 @@ variable "security_group_id" {
   type = string
 }
 
+variable "backend_alb_dns_name" {
+  type = string
+}
+
 source "amazon-ebs" "frontend" {
   region            = var.aws_region
   source_ami        = var.source_ami
@@ -74,7 +78,6 @@ build {
     "source.amazon-ebs.frontend"
   ]
 
-  # Install Nginx and Git
   provisioner "shell" {
     inline = [
       "sudo dnf update -y",
@@ -82,7 +85,6 @@ build {
     ]
   }
 
-  # Clone application repository
   provisioner "shell" {
     inline = [
       "cd /tmp",
@@ -90,7 +92,6 @@ build {
     ]
   }
 
-  # Copy frontend application
   provisioner "shell" {
     inline = [
       "sudo mkdir -p /usr/share/nginx/html",
@@ -98,15 +99,21 @@ build {
     ]
   }
 
-  # Configure Nginx
+  # Configure Nginx with the internal Backend ALB
   provisioner "shell" {
     inline = [
-      "sudo systemctl enable nginx",
-      "sudo systemctl start nginx"
+      "sudo sh -c \"sed 's|http://update-me|http://${var.backend_alb_dns_name}|' /tmp/3tier-app-code/infrastructure/nginx_config > /etc/nginx/conf.d/default.conf\"",
+      "sudo nginx -t"
     ]
   }
 
-  # Cleanup
+  provisioner "shell" {
+    inline = [
+      "sudo systemctl enable nginx",
+      "sudo systemctl restart nginx"
+    ]
+  }
+
   provisioner "shell" {
     inline = [
       "sudo rm -rf /tmp/3tier-app-code",

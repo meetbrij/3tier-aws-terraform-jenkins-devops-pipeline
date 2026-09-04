@@ -58,4 +58,10 @@ variable "db_storage_type" {
 variable "terraform_state_bucket" {
   description = "Name of the S3 bucket for Terraform state"
   type        = string
-} 
+}
+
+variable "db_port" {
+  description = "Database port"
+  type        = number
+  default     = 3306
+}

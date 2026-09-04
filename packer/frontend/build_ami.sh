@@ -3,19 +3,25 @@
 set -e
 
 echo "Initializing Packer plugins..."
+
 packer init .
 
 VPC_ID=$(terraform -chdir=../../terraform/network output -raw vpc_id)
+
 SUBNET_IDS=$(terraform -chdir=../../terraform/network output -json public_subnet_ids)
+
 SUBNET_ID=$(echo "$SUBNET_IDS" | jq -r '.[0]')
 
-if [ -z "$VPC_ID" ] || [ -z "$SUBNET_ID" ]; then
-    echo "Error: Could not retrieve VPC ID or subnet ID from Terraform state"
+BACKEND_ALB_DNS=$(terraform -chdir=../../terraform/compute output -raw backend_alb_dns_name)
+
+if [ -z "$VPC_ID" ] || [ -z "$SUBNET_ID" ] || [ -z "$BACKEND_ALB_DNS" ]; then
+    echo "Error: Could not retrieve required Terraform outputs"
     exit 1
 fi
 
 echo "Using VPC ID: $VPC_ID"
 echo "Using Subnet ID: $SUBNET_ID"
+echo "Using Backend ALB: $BACKEND_ALB_DNS"
 
 echo "Creating security group for Packer..."
 
@@ -63,6 +69,7 @@ PACKER_LOG=1 PACKER_LOG_PATH=packer.log packer build \
   -var "subnet_id=$SUBNET_ID" \
   -var "ssh_username=ec2-user" \
   -var "security_group_id=$PACKER_SG_ID" \
+  -var "backend_alb_dns_name=$BACKEND_ALB_DNS" \
   frontend.pkr.hcl | tee >(grep -Eo 'ami-[a-z0-9]{17}' | tail -n1 > ../../terraform/compute/ami_ids/frontend_ami.txt)
 
 echo "Cleaning up Packer security group..."

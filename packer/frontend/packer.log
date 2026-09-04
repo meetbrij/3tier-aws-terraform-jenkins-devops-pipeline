@@ -1,638 +1,703 @@
-2026/09/04 14:06:06 [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:06 [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:06 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:06 [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:06 [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:06 [TRACE] listing potential installations for "github.com/hashicorp/amazon" that match ">= 1.0.0". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/brijeshbolar/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.Digest)(0x155014ed2800)}}, ReleasesOnly:false}}
-2026/09/04 14:06:06 [TRACE] Found the following "github.com/hashicorp/amazon" installations: [{/Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 v1.8.2 x5.0}]
-2026/09/04 14:06:06 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
-2026/09/04 14:06:06 [INFO] found external [import] post-processors from amazon plugin
-2026/09/04 14:06:06 found external [ami parameterstore secretsmanager] datasource from amazon plugin
-2026/09/04 14:06:06 [TRACE] listing potential installations for <nil> that match "". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/brijeshbolar/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.Digest)(0x1550142a6180)}}, ReleasesOnly:false}}
-2026/09/04 14:06:07 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
-2026/09/04 14:06:07 [INFO] found external [import] post-processors from amazon plugin
-2026/09/04 14:06:07 found external [ami parameterstore secretsmanager] datasource from amazon plugin
-2026/09/04 14:06:07 [TRACE] validateValue: not active for aws_region, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for source_ami, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for instance_type, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for ssh_username, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for vpc_id, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for subnet_id, so skipping
-2026/09/04 14:06:07 [TRACE] validateValue: not active for security_group_id, so skipping
-2026/09/04 14:06:07 [TRACE] Using protobuf for communication with plugins
-2026/09/04 14:06:07 [INFO] Starting external plugin /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 start builder --protobuf ebs
-2026/09/04 14:06:07 Starting plugin: /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 []string{"/Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64", "start", "builder", "--protobuf", "ebs"}
-2026/09/04 14:06:07 Waiting for RPC address for: /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3838706224
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3838706224
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 Serving a plugin connection...
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 [TRACE] starting builder ebs
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin958256482
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin958256482
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin769086792
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin769086792
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3334710537
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3334710537
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1815819493
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1815819493
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Waiting for connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1987341694
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1987341694
-2026/09/04 14:06:07 packer-provisioner-shell plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-post-processor-manifest
-2026/09/04 14:06:07 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-post-processor-manifest"}
-2026/09/04 14:06:07 Waiting for RPC address for: /opt/homebrew/bin/packer
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1489359953
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: Waiting for connection...
-2026/09/04 14:06:07 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1489359953
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: Serving a plugin connection...
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:07 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:07 ui: [1;32mthree-tier-frontend.amazon-ebs.frontend: output will be in this color.[0m
-2026/09/04 14:06:07 ui: 
-2026/09/04 14:06:07 Build debug mode: false
-2026/09/04 14:06:07 Force build: false
-2026/09/04 14:06:07 On error: 
-2026/09/04 14:06:07 Waiting on builds to complete...
-2026/09/04 14:06:07 Starting build run: three-tier-frontend.amazon-ebs.frontend
-2026/09/04 14:06:07 Running builder: amazon-ebs
-2026/09/04 14:06:07 [INFO] (telemetry) Starting builder amazon-ebs.frontend
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 Found region us-east-1
-2026/09/04 14:06:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:07 [INFO] AWS Auth provider used: "SharedConfigCredentials: /Users/brijeshbolar/.aws/credentials"
-2026/09/04 14:06:08 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Prevalidating any provided VPC information[0m
-2026/09/04 14:06:08 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Prevalidating AMI Name: three-tier-frontend-20260904083607[0m
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:08 Using AMI Filters {
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "DryRun": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "ExecutableUsers": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "Filters": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "ImageIds": [
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:     "ami-081b0a6eac00b4f53"
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   ],
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "IncludeDeprecated": false,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "IncludeDisabled": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "MaxResults": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "NextToken": null,
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "Owners": null
-2026/09/04 14:06:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: }
-2026/09/04 14:06:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Found Image ID: ami-081b0a6eac00b4f53[0m
-2026/09/04 14:06:09 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:09 [INFO] Finding AZ and VpcId for the given subnet 'subnet-095851e2c3a92c08d'
-2026/09/04 14:06:09 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:09 [INFO] AvailabilityZone found: 'us-east-1a'
-2026/09/04 14:06:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating temporary keypair: packer-20260904083607[0m
-2026/09/04 14:06:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:10 Using specified security groups: [sg-0477a5c6abaf83d3e]
-2026/09/04 14:06:10 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Launching a source AWS instance...[0m
-2026/09/04 14:06:10 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: changing public IP address config to true for instance on subnet "subnet-095851e2c3a92c08d"[0m
-2026/09/04 14:06:11 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Instance ID: i-0a877edab9d0ca4d9[0m
-2026/09/04 14:06:11 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for instance (i-0a877edab9d0ca4d9) to become ready...[0m
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 [INFO] Not using winrm communicator, skipping get password...
-2026/09/04 14:06:28 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Using SSH communicator to connect: 100.52.185.38[0m
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 [INFO] Waiting for SSH, up to timeout: 10m0s
-2026/09/04 14:06:28 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for SSH to become available...[0m
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 Using host value: 100.52.185.38
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 [INFO] Attempting SSH connection to 100.52.185.38:22...
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 [DEBUG] reconnecting to TCP connection for SSH
-2026/09/04 14:06:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:28 [DEBUG] handshaking with SSH
-2026/09/04 14:06:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:30 [DEBUG] handshake complete!
-2026/09/04 14:06:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:30 [DEBUG] Opening new ssh session
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [INFO] agent forwarding enabled
-2026/09/04 14:06:31 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Connected to SSH![0m
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 Running the provision hook
-2026/09/04 14:06:31 [INFO] (telemetry) Starting provisioner shell
-2026/09/04 14:06:31 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:06:31 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:06:31 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3560016203[0m
-2026/09/04 14:06:31 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3560016203 for reading
-2026/09/04 14:06:31 packer-provisioner-shell plugin: [INFO] 62 bytes written for 'uploadData'
-2026/09/04 14:06:31 [INFO] 62 bytes written for 'uploadData'
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] Opening new ssh session
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] Starting remote scp process:  scp -vt /tmp
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] Started SCP session, beginning transfers...
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] Copying input data into temporary file so we can read the length
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] scp: Uploading script_5931.sh: perms=C0644 size=62
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] SCP session complete, closing stdin pipe.
-2026/09/04 14:06:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:31 [DEBUG] Waiting for SSH session to complete.
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:32 [DEBUG] scp stderr (length 69): Sink: C0644 62 script_5931.sh
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:32 [DEBUG] Opening new ssh session
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:32 [DEBUG] starting remote command: chmod 0755 /tmp/script_5931.sh
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:32 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:06:32 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:06:32 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:06:32 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:06:32 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:32 [DEBUG] Opening new ssh session
-2026/09/04 14:06:33 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:06:33 [DEBUG] starting remote command: chmod +x /tmp/script_5931.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_5931.sh
-2026/09/04 14:06:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for process with pid 1955 to finish.[0m
-2026/09/04 14:08:06 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Amazon Linux 2023 Kernel Livepatch repository   285 kB/s |  69 kB     00:00[0m
-2026/09/04 14:08:07 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Last metadata expiration check: 0:00:01 ago on Fri Sep  4 08:38:06 2026.[0m
-2026/09/04 14:08:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
-2026/09/04 14:08:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Nothing to do.[0m
-2026/09/04 14:08:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
-2026/09/04 14:08:22 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Last metadata expiration check: 0:00:16 ago on Fri Sep  4 08:38:06 2026.[0m
-2026/09/04 14:08:22 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  Package               Arch     Version                     Repository     Size[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installing:[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit                  (B[m x86_64   2.50.1-1.amzn2023.0.1       amazonlinux    53 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx                (B[m x86_64   1:1.30.4-1.amzn2023.0.1     amazonlinux    34 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installing dependencies:[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgeneric-logos-httpd  (B[m noarch   18.0.0-12.amzn2023.0.3      amazonlinux    19 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit-core             (B[m x86_64   2.50.1-1.amzn2023.0.1       amazonlinux   4.9 M[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit-core-doc         (B[m noarch   2.50.1-1.amzn2023.0.1       amazonlinux   2.8 M[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgperftools-libs      (B[m x86_64   2.9.1-1.amzn2023.0.3        amazonlinux   308 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mlibunwind            (B[m x86_64   1.4.0-5.amzn2023.0.3        amazonlinux    66 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-core           (B[m x86_64   1:1.30.4-1.amzn2023.0.1     amazonlinux   711 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-filesystem     (B[m noarch   1:1.30.4-1.amzn2023.0.1     amazonlinux    10 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-mimetypes      (B[m noarch   2.1.49-3.amzn2023.0.3       amazonlinux    21 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-Error           (B[m noarch   1:0.17030-2.amzn2023.0.1    amazonlinux    42 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-File-Find       (B[m noarch   1.37-477.amzn2023.0.9       amazonlinux    26 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-Git             (B[m noarch   2.50.1-1.amzn2023.0.1       amazonlinux    41 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-TermReadKey     (B[m x86_64   2.38-9.amzn2023.0.3         amazonlinux    36 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-lib             (B[m x86_64   0.65-477.amzn2023.0.9       amazonlinux    15 k[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction Summary[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Install  15 Packages[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Total download size: 9.1 M[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installed size: 45 M[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Downloading Packages:[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (1/15): git-2.50.1-1.amzn2023.0.1.x86_64.rpm    703 kB/s |  53 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (2/15): generic-logos-httpd-18.0.0-12.amzn2023. 240 kB/s |  19 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (3/15): gperftools-libs-2.9.1-1.amzn2023.0.3.x8 5.8 MB/s | 308 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (4/15): libunwind-1.4.0-5.amzn2023.0.3.x86_64.r 895 kB/s |  66 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (5/15): git-core-doc-2.50.1-1.amzn2023.0.1.noar  14 MB/s | 2.8 MB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (6/15): nginx-1.30.4-1.amzn2023.0.1.x86_64.rpm  425 kB/s |  34 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (7/15): git-core-2.50.1-1.amzn2023.0.1.x86_64.r  13 MB/s | 4.9 MB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (8/15): nginx-filesystem-1.30.4-1.amzn2023.0.1. 111 kB/s |  10 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (9/15): nginx-core-1.30.4-1.amzn2023.0.1.x86_64 4.3 MB/s | 711 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (10/15): nginx-mimetypes-2.1.49-3.amzn2023.0.3. 316 kB/s |  21 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (11/15): perl-Error-0.17030-2.amzn2023.0.1.noar 631 kB/s |  42 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (12/15): perl-File-Find-1.37-477.amzn2023.0.9.n 1.1 MB/s |  26 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (13/15): perl-TermReadKey-2.38-9.amzn2023.0.3.x 1.4 MB/s |  36 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (14/15): perl-lib-0.65-477.amzn2023.0.9.x86_64. 688 kB/s |  15 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (15/15): perl-Git-2.50.1-1.amzn2023.0.1.noarch. 789 kB/s |  41 kB     00:00[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: --------------------------------------------------------------------------------[0m
-2026/09/04 14:08:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Total                                            15 MB/s | 9.1 MB     00:00[0m
-2026/09/04 14:08:25 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction check[0m
-2026/09/04 14:08:25 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction check succeeded.[0m
-2026/09/04 14:08:25 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction test[0m
-2026/09/04 14:08:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction test succeeded.[0m
-2026/09/04 14:08:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction[0m
-2026/09/04 14:08:27 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Preparing        :                                                        1/1[0m
-2026/09/04 14:08:27 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       1/15[0m
-2026/09/04 14:08:27 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       1/15[0m
-2026/09/04 14:08:29 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                 2/15[0m
-2026/09/04 14:08:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-core-doc-2.50.1-1.amzn2023.0.1.noarch             3/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch          4/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-lib-0.65-477.amzn2023.0.9.x86_64                 5/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64           6/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-File-Find-1.37-477.amzn2023.0.9.noarch           7/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-Error-1:0.17030-2.amzn2023.0.1.noarch            8/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-Git-2.50.1-1.amzn2023.0.1.noarch                 9/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-2.50.1-1.amzn2023.0.1.x86_64                     10/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : libunwind-1.4.0-5.amzn2023.0.3.x86_64                11/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64          12/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64            13/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch    14/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-1:1.30.4-1.amzn2023.0.1.x86_64                 15/15[0m
-2026/09/04 14:08:34 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: nginx-1:1.30.4-1.amzn2023.0.1.x86_64                 15/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch     1/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                      2/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                 3/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch             4/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64           5/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : libunwind-1.4.0-5.amzn2023.0.3.x86_64                 6/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-1:1.30.4-1.amzn2023.0.1.x86_64                  7/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64             8/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       9/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch         10/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Error-1:0.17030-2.amzn2023.0.1.noarch           11/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-File-Find-1.37-477.amzn2023.0.9.noarch          12/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                13/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64          14/15[0m
-2026/09/04 14:08:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-lib-0.65-477.amzn2023.0.9.x86_64                15/15[0m
-2026/09/04 14:08:43 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installed:[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-2.50.1-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-2.50.1-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-doc-2.50.1-1.amzn2023.0.1.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   libunwind-1.4.0-5.amzn2023.0.3.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-1:1.30.4-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Error-1:0.17030-2.amzn2023.0.1.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-File-Find-1.37-477.amzn2023.0.9.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Git-2.50.1-1.amzn2023.0.1.noarch[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-lib-0.65-477.amzn2023.0.9.x86_64[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:08:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
-2026/09/04 14:08:45 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:45 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:45 [INFO] 24104 bytes written for 'stdout'
-2026/09/04 14:08:45 [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:45 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:45 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:45 packer-provisioner-shell plugin: [INFO] 24104 bytes written for 'stdout'
-2026/09/04 14:08:45 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:45 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:45 [DEBUG] Opening new ssh session
-2026/09/04 14:08:46 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:46 [DEBUG] starting remote command: rm -f /tmp/script_5931.sh
-2026/09/04 14:08:47 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:47 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:47 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:47 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:47 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:47 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:47 [DEBUG] Opening new ssh session
-2026/09/04 14:08:47 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:47 [DEBUG] starting remote command: rm -f
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:48 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:48 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:48 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:48 [INFO] (telemetry) ending shell
-2026/09/04 14:08:48 [INFO] (telemetry) Starting provisioner shell
-2026/09/04 14:08:48 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:08:48 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:08:48 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell509067252[0m
-2026/09/04 14:08:48 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell509067252 for reading
-2026/09/04 14:08:48 packer-provisioner-shell plugin: [INFO] 78 bytes written for 'uploadData'
-2026/09/04 14:08:48 [INFO] 78 bytes written for 'uploadData'
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [DEBUG] Opening new ssh session
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [DEBUG] Starting remote scp process:  scp -vt /tmp
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [DEBUG] Started SCP session, beginning transfers...
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [DEBUG] Copying input data into temporary file so we can read the length
-2026/09/04 14:08:48 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:48 [DEBUG] scp: Uploading script_4834.sh: perms=C0644 size=78
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:49 [DEBUG] SCP session complete, closing stdin pipe.
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:49 [DEBUG] Waiting for SSH session to complete.
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:49 [DEBUG] scp stderr (length 69): Sink: C0644 78 script_4834.sh
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:49 [DEBUG] Opening new ssh session
-2026/09/04 14:08:49 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:49 [DEBUG] starting remote command: chmod 0755 /tmp/script_4834.sh
-2026/09/04 14:08:50 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:50 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:50 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:50 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:50 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:50 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:50 [DEBUG] Opening new ssh session
-2026/09/04 14:08:51 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:51 [DEBUG] starting remote command: chmod +x /tmp/script_4834.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_4834.sh
-2026/09/04 14:08:51 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Cloning into '3tier-app-code'...[0m
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Enumerating objects: 32, done.[K[0m
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Counting objects: 100% (32/32), done.[K[0m
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Compressing objects: 100% (22/22), done.[K[0m
-2026/09/04 14:08:52 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:52 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:52 [INFO] 3892 bytes written for 'stdout'
-2026/09/04 14:08:52 [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:52 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:52 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Total 32 (delta 6), reused 32 (delta 6), pack-reused 0 (from 0)[K[0m
-2026/09/04 14:08:52 packer-provisioner-shell plugin: [INFO] 3892 bytes written for 'stdout'
-2026/09/04 14:08:52 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:52 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Receiving objects: 100% (32/32), 580.11 KiB | 3.49 MiB/s, done.[0m
-2026/09/04 14:08:52 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Resolving deltas: 100% (6/6), done.[0m
-2026/09/04 14:08:52 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:52 [DEBUG] Opening new ssh session
-2026/09/04 14:08:53 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:53 [DEBUG] starting remote command: rm -f /tmp/script_4834.sh
-2026/09/04 14:08:53 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:53 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:53 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:53 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:53 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:53 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:53 [DEBUG] Opening new ssh session
-2026/09/04 14:08:54 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:54 [DEBUG] starting remote command: rm -f
-2026/09/04 14:08:54 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:54 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:54 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:54 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:54 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:54 [INFO] (telemetry) ending shell
-2026/09/04 14:08:54 [INFO] (telemetry) Starting provisioner shell
-2026/09/04 14:08:54 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:08:54 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:08:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell64310130[0m
-2026/09/04 14:08:54 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell64310130 for reading
-2026/09/04 14:08:54 packer-provisioner-shell plugin: [INFO] 114 bytes written for 'uploadData'
-2026/09/04 14:08:54 [INFO] 114 bytes written for 'uploadData'
-2026/09/04 14:08:54 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:54 [DEBUG] Opening new ssh session
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] Starting remote scp process:  scp -vt /tmp
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] Started SCP session, beginning transfers...
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] Copying input data into temporary file so we can read the length
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] scp: Uploading script_205.sh: perms=C0644 size=114
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] SCP session complete, closing stdin pipe.
-2026/09/04 14:08:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:55 [DEBUG] Waiting for SSH session to complete.
-2026/09/04 14:08:56 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:56 [DEBUG] scp stderr (length 69): Sink: C0644 114 script_205.sh
-2026/09/04 14:08:56 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
-2026/09/04 14:08:56 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:56 [DEBUG] Opening new ssh session
-2026/09/04 14:08:56 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:56 [DEBUG] starting remote command: chmod 0755 /tmp/script_205.sh
-2026/09/04 14:08:57 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:57 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:57 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:57 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:57 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:57 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:57 [DEBUG] Opening new ssh session
-2026/09/04 14:08:57 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:57 [DEBUG] starting remote command: chmod +x /tmp/script_205.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_205.sh
-2026/09/04 14:08:59 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:59 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:59 [INFO] 0 bytes written for 'stdout'
-2026/09/04 14:08:59 [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:59 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:59 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:08:59 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stdout'
-2026/09/04 14:08:59 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:08:59 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:08:59 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:59 [DEBUG] Opening new ssh session
-2026/09/04 14:08:59 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:08:59 [DEBUG] starting remote command: rm -f /tmp/script_205.sh
-2026/09/04 14:09:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:00 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:00 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:00 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:00 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:00 [DEBUG] Opening new ssh session
-2026/09/04 14:09:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:01 [DEBUG] starting remote command: rm -f
-2026/09/04 14:09:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:01 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:01 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:01 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:01 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:01 [INFO] (telemetry) ending shell
-2026/09/04 14:09:01 [INFO] (telemetry) Starting provisioner shell
-2026/09/04 14:09:01 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:09:01 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:09:01 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell2984967317[0m
-2026/09/04 14:09:01 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell2984967317 for reading
-2026/09/04 14:09:01 packer-provisioner-shell plugin: [INFO] 68 bytes written for 'uploadData'
-2026/09/04 14:09:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:01 [DEBUG] Opening new ssh session
-2026/09/04 14:09:01 [INFO] 68 bytes written for 'uploadData'
-2026/09/04 14:09:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:01 [DEBUG] Starting remote scp process:  scp -vt /tmp
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] Started SCP session, beginning transfers...
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] Copying input data into temporary file so we can read the length
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] scp: Uploading script_8773.sh: perms=C0644 size=68
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] SCP session complete, closing stdin pipe.
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] Waiting for SSH session to complete.
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] scp stderr (length 69): Sink: C0644 68 script_8773.sh
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
-2026/09/04 14:09:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:02 [DEBUG] Opening new ssh session
-2026/09/04 14:09:03 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:03 [DEBUG] starting remote command: chmod 0755 /tmp/script_8773.sh
-2026/09/04 14:09:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:04 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:04 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:04 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:04 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:04 [DEBUG] Opening new ssh session
-2026/09/04 14:09:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:04 [DEBUG] starting remote command: chmod +x /tmp/script_8773.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_8773.sh
-2026/09/04 14:09:05 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.[0m
-2026/09/04 14:09:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:10 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:10 [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:09:10 [INFO] 119 bytes written for 'stdout'
-2026/09/04 14:09:10 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:10 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:10 packer-provisioner-shell plugin: [INFO] 119 bytes written for 'stdout'
-2026/09/04 14:09:10 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:09:10 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:10 [DEBUG] Opening new ssh session
-2026/09/04 14:09:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:10 [DEBUG] starting remote command: rm -f /tmp/script_8773.sh
-2026/09/04 14:09:11 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:11 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:11 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:11 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:11 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:11 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:11 [DEBUG] Opening new ssh session
-2026/09/04 14:09:11 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:11 [DEBUG] starting remote command: rm -f
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:12 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:12 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:12 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:12 [INFO] (telemetry) ending shell
-2026/09/04 14:09:12 [INFO] (telemetry) Starting provisioner shell
-2026/09/04 14:09:12 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:09:12 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:09:12 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell984798068[0m
-2026/09/04 14:09:12 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell984798068 for reading
-2026/09/04 14:09:12 packer-provisioner-shell plugin: [INFO] 68 bytes written for 'uploadData'
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [DEBUG] Opening new ssh session
-2026/09/04 14:09:12 [INFO] 68 bytes written for 'uploadData'
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [DEBUG] Starting remote scp process:  scp -vt /tmp
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [DEBUG] Started SCP session, beginning transfers...
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [DEBUG] Copying input data into temporary file so we can read the length
-2026/09/04 14:09:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:12 [DEBUG] scp: Uploading script_2766.sh: perms=C0644 size=68
-2026/09/04 14:09:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:13 [DEBUG] SCP session complete, closing stdin pipe.
-2026/09/04 14:09:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:13 [DEBUG] Waiting for SSH session to complete.
-2026/09/04 14:09:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:13 [DEBUG] scp stderr (length 69): Sink: C0644 68 script_2766.sh
-2026/09/04 14:09:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
-2026/09/04 14:09:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:13 [DEBUG] Opening new ssh session
-2026/09/04 14:09:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:14 [DEBUG] starting remote command: chmod 0755 /tmp/script_2766.sh
-2026/09/04 14:09:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:14 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:14 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:14 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:14 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:14 [DEBUG] Opening new ssh session
-2026/09/04 14:09:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:15 [DEBUG] starting remote command: chmod +x /tmp/script_2766.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_2766.sh
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  Package            Arch     Version                       Repository      Size[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removing:[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit               (B[m x86_64   2.50.1-1.amzn2023.0.1         @amazonlinux    85 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removing unused dependencies:[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit-core          (B[m x86_64   2.50.1-1.amzn2023.0.1         @amazonlinux    23 M[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit-core-doc      (B[m noarch   2.50.1-1.amzn2023.0.1         @amazonlinux    18 M[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-Error        (B[m noarch   1:0.17030-2.amzn2023.0.1      @amazonlinux    77 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-File-Find    (B[m noarch   1.37-477.amzn2023.0.9         @amazonlinux    39 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-Git          (B[m noarch   2.50.1-1.amzn2023.0.1         @amazonlinux    65 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-TermReadKey  (B[m x86_64   2.38-9.amzn2023.0.3           @amazonlinux    64 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-lib          (B[m x86_64   0.65-477.amzn2023.0.9         @amazonlinux   9.4 k[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction Summary[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Remove  8 Packages[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Freed space: 41 M[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction check[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction check succeeded.[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction test[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction test succeeded.[0m
-2026/09/04 14:09:20 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction[0m
-2026/09/04 14:09:21 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Preparing        :                                                        1/1[0m
-2026/09/04 14:09:21 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-2.50.1-1.amzn2023.0.1.x86_64                       1/8[0m
-2026/09/04 14:09:22 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-core-doc-2.50.1-1.amzn2023.0.1.noarch              2/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-Git-2.50.1-1.amzn2023.0.1.noarch                  3/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-Error-1:0.17030-2.amzn2023.0.1.noarch             4/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-File-Find-1.37-477.amzn2023.0.9.noarch            5/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-lib-0.65-477.amzn2023.0.9.x86_64                  6/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-core-2.50.1-1.amzn2023.0.1.x86_64                  7/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            8/8[0m
-2026/09/04 14:09:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            8/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                       1/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                  2/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch              3/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Error-1:0.17030-2.amzn2023.0.1.noarch             4/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-File-Find-1.37-477.amzn2023.0.9.noarch            5/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                  6/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            7/8[0m
-2026/09/04 14:09:24 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-lib-0.65-477.amzn2023.0.9.x86_64                  8/8[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removed:[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-2.50.1-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-2.50.1-1.amzn2023.0.1.x86_64[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-doc-2.50.1-1.amzn2023.0.1.noarch[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Error-1:0.17030-2.amzn2023.0.1.noarch[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-File-Find-1.37-477.amzn2023.0.9.noarch[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Git-2.50.1-1.amzn2023.0.1.noarch[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-lib-0.65-477.amzn2023.0.9.x86_64[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
-2026/09/04 14:09:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
-2026/09/04 14:09:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:28 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:28 [INFO] 12701 bytes written for 'stdout'
-2026/09/04 14:09:28 [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:09:28 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:28 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:28 packer-provisioner-shell plugin: [INFO] 12701 bytes written for 'stdout'
-2026/09/04 14:09:28 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
-2026/09/04 14:09:28 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:28 [DEBUG] Opening new ssh session
-2026/09/04 14:09:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:28 [DEBUG] starting remote command: rm -f /tmp/script_2766.sh
-2026/09/04 14:09:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:29 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:29 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:29 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:29 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:29 [DEBUG] Opening new ssh session
-2026/09/04 14:09:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:29 [DEBUG] starting remote command: rm -f
-2026/09/04 14:09:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:30 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:30 [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:30 [INFO] RPC endpoint: Communicator ended with: 0
-2026/09/04 14:09:30 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
-2026/09/04 14:09:30 [INFO] (telemetry) ending shell
-2026/09/04 14:09:30 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Stopping the source instance...[0m
-2026/09/04 14:09:30 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Stopping instance[0m
-2026/09/04 14:09:31 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for the instance to stop...[0m
-2026/09/04 14:09:47 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating AMI three-tier-frontend-20260904083607 from instance i-0a877edab9d0ca4d9[0m
-2026/09/04 14:09:47 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Attaching run tags to AMI...[0m
-2026/09/04 14:09:47 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: AMI: ami-09b65fb74c4434a73[0m
-2026/09/04 14:09:47 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for AMI to become ready...[0m
-2026/09/04 14:09:47 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:09:47 Waiting for AMI (ami-09b65fb74c4434a73) to be available...
-2026/09/04 14:11:55 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 14:11:55 fast-boot disabled, no launch-template to set
-2026/09/04 14:11:55 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Skipping Enable AMI deprecation...[0m
-2026/09/04 14:11:55 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Skipping Enable AMI deregistration protection...[0m
-2026/09/04 14:11:55 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying attributes on AMI (ami-09b65fb74c4434a73)...[0m
-2026/09/04 14:11:55 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying: description[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying attributes on snapshot (snap-07edacac8ee48292c)...[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tags to AMI (ami-09b65fb74c4434a73)...[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Tagging snapshot: snap-07edacac8ee48292c[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating AMI tags[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Component": "frontend"[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Environment": "dev"[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Name": "three-tier-frontend"[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating snapshot tags[0m
-2026/09/04 14:11:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Terminating the source AWS instance...[0m
-2026/09/04 14:12:12 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Cleaning up any extra volumes...[0m
-2026/09/04 14:12:13 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: No volumes to clean up, skipping[0m
-2026/09/04 14:12:13 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Deleting temporary keypair...[0m
-2026/09/04 14:12:13 [INFO] (telemetry) ending amazon-ebs.frontend
-2026/09/04 14:12:13 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running post-processor:  (type manifest)[0m
-2026/09/04 14:12:13 [INFO] (telemetry) Starting post-processor manifest
-2026/09/04 14:12:13 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
-2026/09/04 14:12:13 [DEBUG] - common: receiving ConfigSpec as protobuf
-2026/09/04 14:12:13 [INFO] (telemetry) ending manifest
-2026/09/04 14:12:13 Flagging to keep original artifact from post-processor 'manifest'
-2026/09/04 14:12:13 ui: [1;32mBuild 'three-tier-frontend.amazon-ebs.frontend' finished after 6 minutes 6 seconds.[0m
-2026/09/04 14:12:13 ui: 
-==> Wait completed after 6 minutes 6 seconds
-2026/09/04 14:12:13 ui: 
+2026/09/04 15:20:12 [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:12 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:12 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:12 [TRACE] listing potential installations for "github.com/hashicorp/amazon" that match ">= 1.0.0". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/brijeshbolar/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.Digest)(0x51fc65772000)}}, ReleasesOnly:false}}
+2026/09/04 15:20:12 [TRACE] Found the following "github.com/hashicorp/amazon" installations: [{/Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 v1.8.2 x5.0}]
+2026/09/04 15:20:12 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2026/09/04 15:20:12 [INFO] found external [import] post-processors from amazon plugin
+2026/09/04 15:20:12 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2026/09/04 15:20:12 [TRACE] listing potential installations for <nil> that match "". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/brijeshbolar/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.Digest)(0x51fc655ee680)}}, ReleasesOnly:false}}
+2026/09/04 15:20:12 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2026/09/04 15:20:12 [INFO] found external [import] post-processors from amazon plugin
+2026/09/04 15:20:12 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2026/09/04 15:20:12 [TRACE] validateValue: not active for ssh_username, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for vpc_id, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for subnet_id, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for security_group_id, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for backend_alb_dns_name, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for aws_region, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for source_ami, so skipping
+2026/09/04 15:20:12 [TRACE] validateValue: not active for instance_type, so skipping
+2026/09/04 15:20:12 [TRACE] Using protobuf for communication with plugins
+2026/09/04 15:20:12 [INFO] Starting external plugin /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 start builder --protobuf ebs
+2026/09/04 15:20:12 Starting plugin: /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 []string{"/Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64", "start", "builder", "--protobuf", "ebs"}
+2026/09/04 15:20:12 Waiting for RPC address for: /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1004792446
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 Waiting for connection...
+2026/09/04 15:20:12 Received unix RPC address for /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1004792446
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 Serving a plugin connection...
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 [TRACE] starting builder ebs
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
+2026/09/04 15:20:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:12 [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:12 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:12 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3494799216
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:12 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin3494799216
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:12 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:12 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1389324437
+2026/09/04 15:20:12 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin1389324437
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:12 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:12 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:12 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:12 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:12 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin2751904531
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:13 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin2751904531
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:13 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:13 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin2530872195
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:13 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin2530872195
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:13 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:13 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin85588116
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:13 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin85588116
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-provisioner-shell
+2026/09/04 15:20:13 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-provisioner-shell"}
+2026/09/04 15:20:13 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin743646572
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Waiting for connection...
+2026/09/04 15:20:13 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin743646572
+2026/09/04 15:20:13 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 [INFO] Starting external plugin /opt/homebrew/bin/packer execute --protobuf packer-post-processor-manifest
+2026/09/04 15:20:13 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "--protobuf", "packer-post-processor-manifest"}
+2026/09/04 15:20:13 Waiting for RPC address for: /opt/homebrew/bin/packer
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [INFO] Packer version: 1.16.0 [go1.26.3 darwin arm64]
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [WARN] Config file doesn't exist: /Users/brijeshbolar/.packerconfig
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [INFO] Setting cache directory: /Users/brijeshbolar/.cache/packer
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: Plugin address: unix /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin4054097570
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: Waiting for connection...
+2026/09/04 15:20:13 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-plugin4054097570
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: Serving a plugin connection...
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:13 ui: [1;32mthree-tier-frontend.amazon-ebs.frontend: output will be in this color.[0m
+2026/09/04 15:20:13 ui: 
+2026/09/04 15:20:13 Build debug mode: false
+2026/09/04 15:20:13 Force build: false
+2026/09/04 15:20:13 On error: 
+2026/09/04 15:20:13 Waiting on builds to complete...
+2026/09/04 15:20:13 Starting build run: three-tier-frontend.amazon-ebs.frontend
+2026/09/04 15:20:13 Running builder: amazon-ebs
+2026/09/04 15:20:13 [INFO] (telemetry) Starting builder amazon-ebs.frontend
+2026/09/04 15:20:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:13 Found region us-east-1
+2026/09/04 15:20:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:13 [INFO] AWS Auth provider used: "SharedConfigCredentials: /Users/brijeshbolar/.aws/credentials"
+2026/09/04 15:20:14 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Prevalidating any provided VPC information[0m
+2026/09/04 15:20:14 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Prevalidating AMI Name: three-tier-frontend-20260904095012[0m
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:15 Using AMI Filters {
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "DryRun": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "ExecutableUsers": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "Filters": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "ImageIds": [
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:     "ami-081b0a6eac00b4f53"
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   ],
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "IncludeDeprecated": false,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "IncludeDisabled": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "MaxResults": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "NextToken": null,
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin:   "Owners": null
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: }
+2026/09/04 15:20:15 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Found Image ID: ami-081b0a6eac00b4f53[0m
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:15 [INFO] Finding AZ and VpcId for the given subnet 'subnet-095851e2c3a92c08d'
+2026/09/04 15:20:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:15 [INFO] AvailabilityZone found: 'us-east-1a'
+2026/09/04 15:20:15 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating temporary keypair: packer-20260904095012[0m
+2026/09/04 15:20:16 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:16 Using specified security groups: [sg-0cf4fff93a1a96132]
+2026/09/04 15:20:16 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Launching a source AWS instance...[0m
+2026/09/04 15:20:16 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: changing public IP address config to true for instance on subnet "subnet-095851e2c3a92c08d"[0m
+2026/09/04 15:20:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Instance ID: i-05a78aef2be129f6f[0m
+2026/09/04 15:20:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for instance (i-05a78aef2be129f6f) to become ready...[0m
+2026/09/04 15:20:33 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:33 [INFO] Not using winrm communicator, skipping get password...
+2026/09/04 15:20:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Using SSH communicator to connect: 100.54.103.49[0m
+2026/09/04 15:20:33 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:33 [INFO] Waiting for SSH, up to timeout: 10m0s
+2026/09/04 15:20:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for SSH to become available...[0m
+2026/09/04 15:20:33 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:33 Using host value: 100.54.103.49
+2026/09/04 15:20:34 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:34 [INFO] Attempting SSH connection to 100.54.103.49:22...
+2026/09/04 15:20:34 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:34 [DEBUG] reconnecting to TCP connection for SSH
+2026/09/04 15:20:34 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:34 [DEBUG] handshaking with SSH
+2026/09/04 15:20:36 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:36 [DEBUG] handshake complete!
+2026/09/04 15:20:36 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:36 [DEBUG] Opening new ssh session
+2026/09/04 15:20:36 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:36 [INFO] agent forwarding enabled
+2026/09/04 15:20:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Connected to SSH![0m
+2026/09/04 15:20:36 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:36 Running the provision hook
+2026/09/04 15:20:36 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:20:36 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:20:36 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:20:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1696658412[0m
+2026/09/04 15:20:36 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1696658412 for reading
+2026/09/04 15:20:36 packer-provisioner-shell plugin: [INFO] 62 bytes written for 'uploadData'
+2026/09/04 15:20:36 [INFO] 62 bytes written for 'uploadData'
+2026/09/04 15:20:36 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:36 [DEBUG] Opening new ssh session
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] scp: Uploading script_911.sh: perms=C0644 size=62
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:20:37 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:37 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:38 [DEBUG] scp stderr (length 68): Sink: C0644 62 script_911.sh
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:38 [DEBUG] Opening new ssh session
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:38 [DEBUG] starting remote command: chmod 0755 /tmp/script_911.sh
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:38 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:20:38 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:20:38 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:20:38 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:20:38 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:38 [DEBUG] Opening new ssh session
+2026/09/04 15:20:39 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:20:39 [DEBUG] starting remote command: chmod +x /tmp/script_911.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_911.sh
+2026/09/04 15:20:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for process with pid 1955 to finish.[0m
+2026/09/04 15:22:22 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Amazon Linux 2023 Kernel Livepatch repository   284 kB/s |  69 kB     00:00[0m
+2026/09/04 15:22:22 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Last metadata expiration check: 0:00:01 ago on Fri Sep  4 09:52:21 2026.[0m
+2026/09/04 15:22:32 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
+2026/09/04 15:22:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Nothing to do.[0m
+2026/09/04 15:22:33 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
+2026/09/04 15:22:37 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Last metadata expiration check: 0:00:16 ago on Fri Sep  4 09:52:21 2026.[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  Package               Arch     Version                     Repository     Size[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installing:[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit                  (B[m x86_64   2.50.1-1.amzn2023.0.1       amazonlinux    53 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx                (B[m x86_64   1:1.30.4-1.amzn2023.0.1     amazonlinux    34 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installing dependencies:[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgeneric-logos-httpd  (B[m noarch   18.0.0-12.amzn2023.0.3      amazonlinux    19 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit-core             (B[m x86_64   2.50.1-1.amzn2023.0.1       amazonlinux   4.9 M[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgit-core-doc         (B[m noarch   2.50.1-1.amzn2023.0.1       amazonlinux   2.8 M[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mgperftools-libs      (B[m x86_64   2.9.1-1.amzn2023.0.3        amazonlinux   308 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mlibunwind            (B[m x86_64   1.4.0-5.amzn2023.0.3        amazonlinux    66 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-core           (B[m x86_64   1:1.30.4-1.amzn2023.0.1     amazonlinux   711 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-filesystem     (B[m noarch   1:1.30.4-1.amzn2023.0.1     amazonlinux    10 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mnginx-mimetypes      (B[m noarch   2.1.49-3.amzn2023.0.3       amazonlinux    21 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-Error           (B[m noarch   1:0.17030-2.amzn2023.0.1    amazonlinux    42 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-File-Find       (B[m noarch   1.37-477.amzn2023.0.9       amazonlinux    26 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-Git             (B[m noarch   2.50.1-1.amzn2023.0.1       amazonlinux    41 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-TermReadKey     (B[m x86_64   2.38-9.amzn2023.0.3         amazonlinux    36 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [1m[32mperl-lib             (B[m x86_64   0.65-477.amzn2023.0.9       amazonlinux    15 k[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction Summary[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Install  15 Packages[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Total download size: 9.1 M[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installed size: 45 M[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Downloading Packages:[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (1/15): generic-logos-httpd-18.0.0-12.amzn2023. 233 kB/s |  19 kB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (2/15): git-2.50.1-1.amzn2023.0.1.x86_64.rpm    625 kB/s |  53 kB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (3/15): gperftools-libs-2.9.1-1.amzn2023.0.3.x8 3.7 MB/s | 308 kB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (4/15): git-core-doc-2.50.1-1.amzn2023.0.1.noar  18 MB/s | 2.8 MB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (5/15): libunwind-1.4.0-5.amzn2023.0.3.x86_64.r 810 kB/s |  66 kB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (6/15): git-core-2.50.1-1.amzn2023.0.1.x86_64.r  15 MB/s | 4.9 MB     00:00[0m
+2026/09/04 15:22:38 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (7/15): nginx-1.30.4-1.amzn2023.0.1.x86_64.rpm  380 kB/s |  34 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (8/15): nginx-core-1.30.4-1.amzn2023.0.1.x86_64 4.5 MB/s | 711 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (9/15): nginx-filesystem-1.30.4-1.amzn2023.0.1. 141 kB/s |  10 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (10/15): nginx-mimetypes-2.1.49-3.amzn2023.0.3. 286 kB/s |  21 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (11/15): perl-Error-0.17030-2.amzn2023.0.1.noar 1.5 MB/s |  42 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (12/15): perl-File-Find-1.37-477.amzn2023.0.9.n 811 kB/s |  26 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (13/15): perl-Git-2.50.1-1.amzn2023.0.1.noarch. 1.1 MB/s |  41 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (14/15): perl-TermReadKey-2.38-9.amzn2023.0.3.x 732 kB/s |  36 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: (15/15): perl-lib-0.65-477.amzn2023.0.9.x86_64. 571 kB/s |  15 kB     00:00[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: --------------------------------------------------------------------------------[0m
+2026/09/04 15:22:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Total                                            14 MB/s | 9.1 MB     00:00[0m
+2026/09/04 15:22:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction check[0m
+2026/09/04 15:22:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction check succeeded.[0m
+2026/09/04 15:22:40 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction test[0m
+2026/09/04 15:22:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction test succeeded.[0m
+2026/09/04 15:22:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction[0m
+2026/09/04 15:22:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Preparing        :                                                        1/1[0m
+2026/09/04 15:22:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       1/15[0m
+2026/09/04 15:22:43 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       1/15[0m
+2026/09/04 15:22:44 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                 2/15[0m
+2026/09/04 15:22:48 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-core-doc-2.50.1-1.amzn2023.0.1.noarch             3/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch          4/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-lib-0.65-477.amzn2023.0.9.x86_64                 5/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64           6/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-File-Find-1.37-477.amzn2023.0.9.noarch           7/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-Error-1:0.17030-2.amzn2023.0.1.noarch            8/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : perl-Git-2.50.1-1.amzn2023.0.1.noarch                 9/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : git-2.50.1-1.amzn2023.0.1.x86_64                     10/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : libunwind-1.4.0-5.amzn2023.0.3.x86_64                11/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64          12/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64            13/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch    14/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Installing       : nginx-1:1.30.4-1.amzn2023.0.1.x86_64                 15/15[0m
+2026/09/04 15:22:49 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: nginx-1:1.30.4-1.amzn2023.0.1.x86_64                 15/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch     1/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                      2/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                 3/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch             4/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64           5/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : libunwind-1.4.0-5.amzn2023.0.3.x86_64                 6/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-1:1.30.4-1.amzn2023.0.1.x86_64                  7/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64             8/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch       9/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch         10/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Error-1:0.17030-2.amzn2023.0.1.noarch           11/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-File-Find-1.37-477.amzn2023.0.9.noarch          12/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                13/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64          14/15[0m
+2026/09/04 15:22:54 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-lib-0.65-477.amzn2023.0.9.x86_64                15/15[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Installed:[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-2.50.1-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-2.50.1-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-doc-2.50.1-1.amzn2023.0.1.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   libunwind-1.4.0-5.amzn2023.0.3.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-1:1.30.4-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-core-1:1.30.4-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Error-1:0.17030-2.amzn2023.0.1.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-File-Find-1.37-477.amzn2023.0.9.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Git-2.50.1-1.amzn2023.0.1.noarch[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-lib-0.65-477.amzn2023.0.9.x86_64[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:22:56 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
+2026/09/04 15:22:57 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:57 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:22:57 [INFO] 24104 bytes written for 'stdout'
+2026/09/04 15:22:57 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:22:57 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:22:57 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:22:57 packer-provisioner-shell plugin: [INFO] 24104 bytes written for 'stdout'
+2026/09/04 15:22:57 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:22:57 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:22:57 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:57 [DEBUG] Opening new ssh session
+2026/09/04 15:22:58 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:58 [DEBUG] starting remote command: rm -f /tmp/script_911.sh
+2026/09/04 15:22:58 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:58 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:22:58 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:22:58 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:22:58 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:22:58 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:58 [DEBUG] Opening new ssh session
+2026/09/04 15:22:59 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:22:59 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:00 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:00 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:00 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:00 [INFO] (telemetry) ending shell
+2026/09/04 15:23:00 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:23:00 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:23:00 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:23:00 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell2478377285[0m
+2026/09/04 15:23:00 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell2478377285 for reading
+2026/09/04 15:23:00 packer-provisioner-shell plugin: [INFO] 78 bytes written for 'uploadData'
+2026/09/04 15:23:00 [INFO] 78 bytes written for 'uploadData'
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] Opening new ssh session
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] scp: Uploading script_2415.sh: perms=C0644 size=78
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:23:00 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:00 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:23:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:01 [DEBUG] scp stderr (length 69): Sink: C0644 78 script_2415.sh
+2026/09/04 15:23:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:23:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:01 [DEBUG] Opening new ssh session
+2026/09/04 15:23:01 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:01 [DEBUG] starting remote command: chmod 0755 /tmp/script_2415.sh
+2026/09/04 15:23:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:02 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:02 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:02 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:02 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:02 [DEBUG] Opening new ssh session
+2026/09/04 15:23:02 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:02 [DEBUG] starting remote command: chmod +x /tmp/script_2415.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_2415.sh
+2026/09/04 15:23:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Cloning into '3tier-app-code'...[0m
+2026/09/04 15:23:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Enumerating objects: 32, done.[K[0m
+2026/09/04 15:23:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Counting objects: 100% (32/32), done.[K[0m
+2026/09/04 15:23:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Compressing objects: 100% (22/22), done.[K[0m
+2026/09/04 15:23:04 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: remote: Total 32 (delta 6), reused 32 (delta 6), pack-reused 0 (from 0)[K[0m
+2026/09/04 15:23:04 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Receiving objects: 100% (32/32), 580.11 KiB | 2.45 MiB/s, done.[0m
+2026/09/04 15:23:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:04 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:04 [INFO] 3892 bytes written for 'stdout'
+2026/09/04 15:23:04 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:04 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:04 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:04 packer-provisioner-shell plugin: [INFO] 3892 bytes written for 'stdout'
+2026/09/04 15:23:04 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:04 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Resolving deltas: 100% (6/6), done.[0m
+2026/09/04 15:23:04 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:04 [DEBUG] Opening new ssh session
+2026/09/04 15:23:04 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:04 [DEBUG] starting remote command: rm -f /tmp/script_2415.sh
+2026/09/04 15:23:05 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:05 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:05 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:05 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:05 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:05 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:05 [DEBUG] Opening new ssh session
+2026/09/04 15:23:05 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:05 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:06 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:06 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:06 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:06 [INFO] (telemetry) ending shell
+2026/09/04 15:23:06 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:23:06 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:23:06 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:23:06 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3896888149[0m
+2026/09/04 15:23:06 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3896888149 for reading
+2026/09/04 15:23:06 packer-provisioner-shell plugin: [INFO] 114 bytes written for 'uploadData'
+2026/09/04 15:23:06 [INFO] 114 bytes written for 'uploadData'
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [DEBUG] Opening new ssh session
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:23:06 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:06 [DEBUG] scp: Uploading script_4200.sh: perms=C0644 size=114
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:07 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:07 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:07 [DEBUG] scp stderr (length 70): Sink: C0644 114 script_4200.sh
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:07 [DEBUG] Opening new ssh session
+2026/09/04 15:23:07 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:07 [DEBUG] starting remote command: chmod 0755 /tmp/script_4200.sh
+2026/09/04 15:23:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:08 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:08 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:08 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:08 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:08 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:08 [DEBUG] Opening new ssh session
+2026/09/04 15:23:09 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:09 [DEBUG] starting remote command: chmod +x /tmp/script_4200.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_4200.sh
+2026/09/04 15:23:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:10 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:10 [INFO] 0 bytes written for 'stdout'
+2026/09/04 15:23:10 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:10 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:10 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:10 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stdout'
+2026/09/04 15:23:10 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:10 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:10 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:10 [DEBUG] Opening new ssh session
+2026/09/04 15:23:11 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:11 [DEBUG] starting remote command: rm -f /tmp/script_4200.sh
+2026/09/04 15:23:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:12 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:12 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:12 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:12 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:12 [DEBUG] Opening new ssh session
+2026/09/04 15:23:12 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:12 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:13 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:13 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:13 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:13 [INFO] (telemetry) ending shell
+2026/09/04 15:23:13 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:23:13 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:23:13 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:23:13 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1605188316[0m
+2026/09/04 15:23:13 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1605188316 for reading
+2026/09/04 15:23:13 packer-provisioner-shell plugin: [INFO] 228 bytes written for 'uploadData'
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] Opening new ssh session
+2026/09/04 15:23:13 [INFO] 228 bytes written for 'uploadData'
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] scp: Uploading script_5695.sh: perms=C0644 size=228
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:23:13 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:13 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:23:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:14 [DEBUG] scp stderr (length 70): Sink: C0644 228 script_5695.sh
+2026/09/04 15:23:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:23:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:14 [DEBUG] Opening new ssh session
+2026/09/04 15:23:14 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:14 [DEBUG] starting remote command: chmod 0755 /tmp/script_5695.sh
+2026/09/04 15:23:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:15 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:15 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:15 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:15 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:15 [DEBUG] Opening new ssh session
+2026/09/04 15:23:15 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:15 [DEBUG] starting remote command: chmod +x /tmp/script_5695.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_5695.sh
+2026/09/04 15:23:17 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:17 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:17 [INFO] 134 bytes written for 'stdout'
+2026/09/04 15:23:17 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:17 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:17 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:17 packer-provisioner-shell plugin: [INFO] 134 bytes written for 'stdout'
+2026/09/04 15:23:17 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:17 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok[0m
+2026/09/04 15:23:17 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: nginx: configuration file /etc/nginx/nginx.conf test is successful[0m
+2026/09/04 15:23:17 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:17 [DEBUG] Opening new ssh session
+2026/09/04 15:23:18 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:18 [DEBUG] starting remote command: rm -f /tmp/script_5695.sh
+2026/09/04 15:23:18 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:18 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:18 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:18 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:18 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:18 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:18 [DEBUG] Opening new ssh session
+2026/09/04 15:23:19 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:19 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:19 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:19 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:19 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:19 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:19 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:19 [INFO] (telemetry) ending shell
+2026/09/04 15:23:19 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:23:19 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:23:19 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:23:19 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3432553040[0m
+2026/09/04 15:23:19 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell3432553040 for reading
+2026/09/04 15:23:19 packer-provisioner-shell plugin: [INFO] 70 bytes written for 'uploadData'
+2026/09/04 15:23:19 [INFO] 70 bytes written for 'uploadData'
+2026/09/04 15:23:19 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:19 [DEBUG] Opening new ssh session
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] scp: Uploading script_1584.sh: perms=C0644 size=70
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] scp stderr (length 69): Sink: C0644 70 script_1584.sh
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:23:20 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:20 [DEBUG] Opening new ssh session
+2026/09/04 15:23:21 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:21 [DEBUG] starting remote command: chmod 0755 /tmp/script_1584.sh
+2026/09/04 15:23:21 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:21 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:21 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:21 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:21 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:21 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:21 [DEBUG] Opening new ssh session
+2026/09/04 15:23:22 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:22 [DEBUG] starting remote command: chmod +x /tmp/script_1584.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_1584.sh
+2026/09/04 15:23:23 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.[0m
+2026/09/04 15:23:27 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:27 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:27 [INFO] 119 bytes written for 'stdout'
+2026/09/04 15:23:27 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:27 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:27 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:27 packer-provisioner-shell plugin: [INFO] 119 bytes written for 'stdout'
+2026/09/04 15:23:27 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:27 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:27 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:27 [DEBUG] Opening new ssh session
+2026/09/04 15:23:27 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:27 [DEBUG] starting remote command: rm -f /tmp/script_1584.sh
+2026/09/04 15:23:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:28 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:28 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:28 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:28 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:28 [DEBUG] Opening new ssh session
+2026/09/04 15:23:28 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:28 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:29 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:29 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:29 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:29 [INFO] (telemetry) ending shell
+2026/09/04 15:23:29 [INFO] (telemetry) Starting provisioner shell
+2026/09/04 15:23:29 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:23:29 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:23:29 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Provisioning with shell script: /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1958493345[0m
+2026/09/04 15:23:29 packer-provisioner-shell plugin: Opening /var/folders/1n/j9vqp88s1zs1f19m46fjvtb00000gn/T/packer-shell1958493345 for reading
+2026/09/04 15:23:29 packer-provisioner-shell plugin: [INFO] 68 bytes written for 'uploadData'
+2026/09/04 15:23:29 [INFO] 68 bytes written for 'uploadData'
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [DEBUG] Opening new ssh session
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [DEBUG] Started SCP session, beginning transfers...
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [DEBUG] Copying input data into temporary file so we can read the length
+2026/09/04 15:23:29 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:29 [DEBUG] scp: Uploading script_4749.sh: perms=C0644 size=68
+2026/09/04 15:23:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:30 [DEBUG] SCP session complete, closing stdin pipe.
+2026/09/04 15:23:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:30 [DEBUG] Waiting for SSH session to complete.
+2026/09/04 15:23:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:30 [DEBUG] scp stderr (length 69): Sink: C0644 68 script_4749.sh
+2026/09/04 15:23:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2026/09/04 15:23:30 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:30 [DEBUG] Opening new ssh session
+2026/09/04 15:23:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:31 [DEBUG] starting remote command: chmod 0755 /tmp/script_4749.sh
+2026/09/04 15:23:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:31 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:31 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:31 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:31 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:31 [DEBUG] Opening new ssh session
+2026/09/04 15:23:31 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:31 [DEBUG] starting remote command: chmod +x /tmp/script_4749.sh; PACKER_BUILDER_TYPE='amazon-ebs' PACKER_BUILD_NAME='frontend'  /tmp/script_4749.sh
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Dependencies resolved.[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  Package            Arch     Version                       Repository      Size[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removing:[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit               (B[m x86_64   2.50.1-1.amzn2023.0.1         @amazonlinux    85 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removing unused dependencies:[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit-core          (B[m x86_64   2.50.1-1.amzn2023.0.1         @amazonlinux    23 M[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mgit-core-doc      (B[m noarch   2.50.1-1.amzn2023.0.1         @amazonlinux    18 M[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-Error        (B[m noarch   1:0.17030-2.amzn2023.0.1      @amazonlinux    77 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-File-Find    (B[m noarch   1.37-477.amzn2023.0.9         @amazonlinux    39 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-Git          (B[m noarch   2.50.1-1.amzn2023.0.1         @amazonlinux    65 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-TermReadKey  (B[m x86_64   2.38-9.amzn2023.0.3           @amazonlinux    64 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:  [31mperl-lib          (B[m x86_64   0.65-477.amzn2023.0.9         @amazonlinux   9.4 k[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction Summary[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: ================================================================================[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Remove  8 Packages[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Freed space: 41 M[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction check[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction check succeeded.[0m
+2026/09/04 15:23:36 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction test[0m
+2026/09/04 15:23:37 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Transaction test succeeded.[0m
+2026/09/04 15:23:37 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running transaction[0m
+2026/09/04 15:23:37 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Preparing        :                                                        1/1[0m
+2026/09/04 15:23:37 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-2.50.1-1.amzn2023.0.1.x86_64                       1/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-core-doc-2.50.1-1.amzn2023.0.1.noarch              2/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-Git-2.50.1-1.amzn2023.0.1.noarch                  3/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-Error-1:0.17030-2.amzn2023.0.1.noarch             4/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-File-Find-1.37-477.amzn2023.0.9.noarch            5/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-lib-0.65-477.amzn2023.0.9.x86_64                  6/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : git-core-2.50.1-1.amzn2023.0.1.x86_64                  7/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Erasing          : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            8/8[0m
+2026/09/04 15:23:39 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Running scriptlet: perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            8/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                       1/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                  2/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch              3/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Error-1:0.17030-2.amzn2023.0.1.noarch             4/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-File-Find-1.37-477.amzn2023.0.9.noarch            5/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                  6/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64            7/8[0m
+2026/09/04 15:23:41 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   Verifying        : perl-lib-0.65-477.amzn2023.0.9.x86_64                  8/8[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Removed:[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-2.50.1-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-2.50.1-1.amzn2023.0.1.x86_64[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   git-core-doc-2.50.1-1.amzn2023.0.1.noarch[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Error-1:0.17030-2.amzn2023.0.1.noarch[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-File-Find-1.37-477.amzn2023.0.9.noarch[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-Git-2.50.1-1.amzn2023.0.1.noarch[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-TermReadKey-2.38-9.amzn2023.0.3.x86_64[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:   perl-lib-0.65-477.amzn2023.0.9.x86_64[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend:[0m
+2026/09/04 15:23:42 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Complete![0m
+2026/09/04 15:23:43 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:43 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:43 [INFO] 12701 bytes written for 'stdout'
+2026/09/04 15:23:43 [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:43 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:43 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:43 packer-provisioner-shell plugin: [INFO] 12701 bytes written for 'stdout'
+2026/09/04 15:23:43 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2026/09/04 15:23:43 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:43 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:43 [DEBUG] Opening new ssh session
+2026/09/04 15:23:44 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:44 [DEBUG] starting remote command: rm -f /tmp/script_4749.sh
+2026/09/04 15:23:44 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:44 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:44 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:44 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:44 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:44 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:44 [DEBUG] Opening new ssh session
+2026/09/04 15:23:45 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:45 [DEBUG] starting remote command: rm -f
+2026/09/04 15:23:46 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:23:46 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:46 [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:46 [INFO] RPC endpoint: Communicator ended with: 0
+2026/09/04 15:23:46 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2026/09/04 15:23:46 [INFO] (telemetry) ending shell
+2026/09/04 15:23:46 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Stopping the source instance...[0m
+2026/09/04 15:23:46 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Stopping instance[0m
+2026/09/04 15:23:47 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for the instance to stop...[0m
+2026/09/04 15:24:02 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating AMI three-tier-frontend-20260904095012 from instance i-05a78aef2be129f6f[0m
+2026/09/04 15:24:02 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Attaching run tags to AMI...[0m
+2026/09/04 15:24:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: AMI: ami-0da2a5634cbc81c18[0m
+2026/09/04 15:24:03 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Waiting for AMI to become ready...[0m
+2026/09/04 15:24:03 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:24:03 Waiting for AMI (ami-0da2a5634cbc81c18) to be available...
+2026/09/04 15:26:09 packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64 plugin: 2026/09/04 15:26:09 fast-boot disabled, no launch-template to set
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Skipping Enable AMI deprecation...[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Skipping Enable AMI deregistration protection...[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying attributes on AMI (ami-0da2a5634cbc81c18)...[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying: description[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Modifying attributes on snapshot (snap-0d66380d60119839f)...[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tags to AMI (ami-0da2a5634cbc81c18)...[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Tagging snapshot: snap-0d66380d60119839f[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating AMI tags[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Environment": "dev"[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Name": "three-tier-frontend"[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Adding tag: "Component": "frontend"[0m
+2026/09/04 15:26:09 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Creating snapshot tags[0m
+2026/09/04 15:26:10 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Terminating the source AWS instance...[0m
+2026/09/04 15:26:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Cleaning up any extra volumes...[0m
+2026/09/04 15:26:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: No volumes to clean up, skipping[0m
+2026/09/04 15:26:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Deleting temporary keypair...[0m
+2026/09/04 15:26:26 [INFO] (telemetry) ending amazon-ebs.frontend
+2026/09/04 15:26:26 ui: [1;32m==> three-tier-frontend.amazon-ebs.frontend: Running post-processor:  (type manifest)[0m
+2026/09/04 15:26:26 [INFO] (telemetry) Starting post-processor manifest
+2026/09/04 15:26:26 packer-post-processor-manifest plugin: [DEBUG] - common: sending ConfigSpec as protobuf
+2026/09/04 15:26:26 [DEBUG] - common: receiving ConfigSpec as protobuf
+2026/09/04 15:26:26 [INFO] (telemetry) ending manifest
+2026/09/04 15:26:26 Flagging to keep original artifact from post-processor 'manifest'
+2026/09/04 15:26:26 ui: [1;32mBuild 'three-tier-frontend.amazon-ebs.frontend' finished after 6 minutes 13 seconds.[0m
+2026/09/04 15:26:26 ui: 
+==> Wait completed after 6 minutes 13 seconds
+2026/09/04 15:26:26 ui: 
 ==> Builds finished. The artifacts of successful builds are:
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact-count []string{"2"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "builder-id", "mitchellh.amazonebs"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "id", "us-east-1:ami-09b65fb74c4434a73"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "string", "AMIs were created:\nus-east-1: ami-09b65fb74c4434a73\n"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "files-count", "0"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "end"}
-2026/09/04 14:12:13 ui: --> three-tier-frontend.amazon-ebs.frontend: AMIs were created:
-us-east-1: ami-09b65fb74c4434a73
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "builder-id", "mitchellh.amazonebs"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "id", "us-east-1:ami-09b65fb74c4434a73"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "string", "AMIs were created:\nus-east-1: ami-09b65fb74c4434a73\n"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "files-count", "0"}
-2026/09/04 14:12:13 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "end"}
-2026/09/04 14:12:13 ui: --> three-tier-frontend.amazon-ebs.frontend: AMIs were created:
-us-east-1: ami-09b65fb74c4434a73
-2026/09/04 14:12:13 [INFO] (telemetry) Finalizing.
-2026/09/04 14:12:14 waiting for all plugin processes to complete...
-2026/09/04 14:12:14 /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
-2026/09/04 14:12:14 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact-count []string{"2"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "builder-id", "mitchellh.amazonebs"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "id", "us-east-1:ami-0da2a5634cbc81c18"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "string", "AMIs were created:\nus-east-1: ami-0da2a5634cbc81c18\n"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "files-count", "0"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"0", "end"}
+2026/09/04 15:26:26 ui: --> three-tier-frontend.amazon-ebs.frontend: AMIs were created:
+us-east-1: ami-0da2a5634cbc81c18
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "builder-id", "mitchellh.amazonebs"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "id", "us-east-1:ami-0da2a5634cbc81c18"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "string", "AMIs were created:\nus-east-1: ami-0da2a5634cbc81c18\n"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "files-count", "0"}
+2026/09/04 15:26:26 machine readable: three-tier-frontend.amazon-ebs.frontend,artifact []string{"1", "end"}
+2026/09/04 15:26:26 ui: --> three-tier-frontend.amazon-ebs.frontend: AMIs were created:
+us-east-1: ami-0da2a5634cbc81c18
+2026/09/04 15:26:26 [INFO] (telemetry) Finalizing.
+2026/09/04 15:26:27 waiting for all plugin processes to complete...
+2026/09/04 15:26:27 /Users/brijeshbolar/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.8.2_x5.0_darwin_arm64: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
+2026/09/04 15:26:27 /opt/homebrew/bin/packer: plugin process exited
