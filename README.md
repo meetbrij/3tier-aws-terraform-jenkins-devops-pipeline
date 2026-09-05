@@ -66,13 +66,19 @@ This architecture is best suited for applications that require a traditional VM-
 
 ### Suitable Project Use Cases
 
+Not every production application needs a highly complex or massively scalable architecture.
+In industries such as banking, healthcare, and insurance, many applications are internal enterprise systems used by a relatively limited and predictable number of employees. An application serving 1,000–5,000 internal users may not require Kubernetes, dozens of microservices, or sophisticated distributed architecture.
+However, limited scale does not mean reduced infrastructure requirements. For these applications, security, high availability, controlled access, resilience, and infrastructure automation can still be non-negotiable requirements.
+
 This architecture is a good fit for:
 
-- Enterprise web applications and internal business applications
-- Banking, financial, and regulatory workloads with established VM-based operating models
+- Internal enterprise applications with a limited and predictable user base
+- Banking, healthcare, insurance, and other regulated workloads
+- Traditional 3-tier applications where the application architecture itself is relatively straightforward
 - Legacy or monolithic applications that are not yet containerized
 - Java, .NET, PHP, Python, and similar applications running on virtual machines
-- Applications requiring predictable, pre-configured server environments
+- Applications that require strong security and network isolation despite moderate traffic
+- Applications requiring high availability and automated instance replacement
 - On-premises applications being migrated to AWS without immediately adopting Kubernetes
 - Small to medium production workloads where Kubernetes would introduce unnecessary operational complexity
 
@@ -90,28 +96,9 @@ The project deliberately uses **EC2, Packer, Auto Scaling Groups, and ALBs** rat
 
 This approach provides many of the benefits expected from a production AWS environment without introducing the operational complexity of a container orchestration platform.
 
-### Why Not Kubernetes?
+### Key Principle
 
-Kubernetes is intentionally **not used in this project**.
-
-Kubernetes is highly valuable when the primary requirement is a container-native platform supporting capabilities such as:
-
-- Large-scale microservices
-- Dynamic container scheduling
-- Service discovery and container networking
-- Advanced deployment strategies
-- Platform engineering at scale
-- Kubernetes-native GitOps workflows
-
-However, introducing Kubernetes would add complexity without providing significant value for the primary objective of this project: demonstrating a **secure, highly available, VM-based AWS architecture with immutable infrastructure and automated provisioning**.
-
-Kubernetes and container-based architectures will instead be explored in the subsequent portfolio projects using **Docker, Amazon EKS, ArgoCD, and GitOps**.
-
-### Key Architecture Lesson
-
-**Kubernetes is not automatically the answer to every application deployment problem.**
-
-The appropriate architecture should be selected based on the application's characteristics, operational requirements, scale, deployment model, and organizational maturity.
+The scale of the application may be modest, but the infrastructure supporting it can still require enterprise-grade security, high availability, resilience, and automation.
 
 ---
 
