@@ -13,16 +13,6 @@ variable "project_name" {
   type        = string
 }
 
-variable "frontend_key_name" {
-  description = "Name of the key pair to use for frontend EC2 instances"
-  type        = string
-}
-
-variable "backend_key_name" {
-  description = "Name of the key pair to use for backend EC2 instances"
-  type        = string
-}
-
 # Frontend variables
 
 variable "frontend_instance_type" {
