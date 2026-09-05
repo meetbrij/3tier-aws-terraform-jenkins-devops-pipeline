@@ -60,6 +60,71 @@ The application is distributed across multiple Availability Zones with separate 
 
 ---
 
+## Project Use Cases & Architecture Choice
+
+This architecture is best suited for applications that require a traditional VM-based deployment model while still benefiting from AWS high availability, horizontal scaling, infrastructure as code, and automated image-based deployments.
+
+### Suitable Project Use Cases
+
+This architecture is a good fit for:
+
+- Enterprise web applications and internal business applications
+- Banking, financial, and regulatory workloads with established VM-based operating models
+- Legacy or monolithic applications that are not yet containerized
+- Java, .NET, PHP, Python, and similar applications running on virtual machines
+- Applications requiring predictable, pre-configured server environments
+- On-premises applications being migrated to AWS without immediately adopting Kubernetes
+- Small to medium production workloads where Kubernetes would introduce unnecessary operational complexity
+
+### Why EC2 + Packer + Auto Scaling?
+
+The project deliberately uses **EC2, Packer, Auto Scaling Groups, and ALBs** rather than Docker and Kubernetes.
+
+| Technology | Why it is used |
+|---|---|
+| **EC2** | Provides a familiar VM-based runtime for traditional enterprise applications |
+| **Packer** | Creates immutable, repeatable AMIs with the application and required runtime pre-configured |
+| **Auto Scaling Groups** | Provides horizontal scaling, instance replacement, and Multi-AZ resilience |
+| **Application Load Balancer** | Distributes application traffic across healthy instances |
+| **Terraform** | Makes the infrastructure repeatable, version-controlled, and automated |
+
+This approach provides many of the benefits expected from a production AWS environment without introducing the operational complexity of a container orchestration platform.
+
+### Why Not Kubernetes?
+
+Kubernetes is intentionally **not used in this project**.
+
+Kubernetes is highly valuable when the primary requirement is a container-native platform supporting capabilities such as:
+
+- Large-scale microservices
+- Dynamic container scheduling
+- Service discovery and container networking
+- Advanced deployment strategies
+- Platform engineering at scale
+- Kubernetes-native GitOps workflows
+
+However, introducing Kubernetes would add complexity without providing significant value for the primary objective of this project: demonstrating a **secure, highly available, VM-based AWS architecture with immutable infrastructure and automated provisioning**.
+
+Kubernetes and container-based architectures will instead be explored in the subsequent portfolio projects using **Docker, Amazon EKS, ArgoCD, and GitOps**.
+
+### Key Architecture Lesson
+
+**Kubernetes is not automatically the answer to every application deployment problem.**
+
+The appropriate architecture should be selected based on the application's characteristics, operational requirements, scale, deployment model, and organizational maturity.
+
+This portfolio intentionally demonstrates both approaches:
+
+**Project 1 — VM-based AWS architecture**
+
+`Terraform → Packer → EC2 → Auto Scaling → ALB`
+
+**Later projects — Containerized platform**
+
+`Docker → EKS → ArgoCD → GitOps`
+
+---
+
 ## Key Components
 
 | Component | Purpose |
