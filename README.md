@@ -1,5 +1,13 @@
 # Secure Highly Available 3-Tier Architecture on AWS
 
+[![AWS](https://img.shields.io/badge/AWS-Cloud-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
+[![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![Packer](https://img.shields.io/badge/Packer-Image%20Build-02A8EF?logo=packer&logoColor=white)](https://www.packer.io/)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20Control-181717?logo=github&logoColor=white)](https://github.com/)
+[![AWS Secrets Manager](https://img.shields.io/badge/AWS-Secrets%20Manager-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com/secrets-manager/)
+[![AWS Systems Manager](https://img.shields.io/badge/AWS-Systems%20Manager-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com/systems-manager/)
+[![Jenkins](https://img.shields.io/badge/Jenkins-DevSecOps%20CI%2FCD-D24939?logo=jenkins&logoColor=white)](https://www.jenkins.io/)
+
 Infrastructure-as-code project that provisions a secure, highly available three-tier application platform on AWS using **Terraform** and **Packer**.
 
 The project is designed as a practical cloud/DevOps portfolio implementation, with clear separation between infrastructure, machine images, application code, and runtime configuration.
