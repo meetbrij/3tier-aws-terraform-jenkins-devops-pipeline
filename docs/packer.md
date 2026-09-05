@@ -282,7 +282,7 @@ Packer build
 AMI ID
      │
      ▼
-am i_ids/*.txt
+ami_ids/*.txt
      │
      ▼
 Terraform local_file
