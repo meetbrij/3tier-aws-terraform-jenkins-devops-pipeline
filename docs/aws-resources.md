@@ -52,7 +52,7 @@ The inventory below describes the resources represented by the baseline configur
 
 ### 3.1 Amazon VPC
 
-The network stack creates a single VPC with a default CIDR of `10.0.0.0/16`. DNS hostnames and DNS support are enabled. fileciteturn67file0L1-L2
+The network stack creates a single VPC with a default CIDR of `10.0.0.0/16`. DNS hostnames and DNS support are enabled.
 
 The VPC is the primary network isolation boundary for the application.
 
@@ -77,21 +77,21 @@ VPC
       └── RDS MySQL
 ```
 
-The subnet definitions are supplied as lists of CIDR blocks and Availability Zones through Terraform variables. fileciteturn71file0L1-L2
+The subnet definitions are supplied as lists of CIDR blocks and Availability Zones through Terraform variables.
 
 ### 3.3 Internet Gateway
 
-An Internet Gateway is attached to the VPC and is used by the public route table for internet-bound traffic. fileciteturn67file0L2-L2
+An Internet Gateway is attached to the VPC and is used by the public route table for internet-bound traffic.
 
 ### 3.4 NAT Gateways
 
-NAT Gateways are deployed in the public web subnets. Each NAT Gateway receives an Elastic IP and provides outbound internet access for private web and application subnets. fileciteturn67file0L2-L2
+NAT Gateways are deployed in the public web subnets. Each NAT Gateway receives an Elastic IP and provides outbound internet access for private web and application subnets.
 
 The private web and application route tables use the corresponding NAT Gateway as their default route.
 
 ### 3.5 Database Routing
 
-Database route tables do not define a default `0.0.0.0/0` route. The database subnets therefore do not have a direct internet or NAT route. fileciteturn67file0L2-L2
+Database route tables do not define a default `0.0.0.0/0` route. The database subnets therefore do not have a direct internet or NAT route.
 
 ---
 
@@ -123,7 +123,7 @@ Backend EC2
 RDS MySQL
 ```
 
-The security-group configuration is defined in the network stack. fileciteturn67file0L2-L2
+The security-group configuration is defined in the network stack.
 
 ---
 
@@ -139,8 +139,6 @@ The frontend Application Load Balancer is:
 - Associated with the frontend ALB security group
 - Connected to the frontend target group
 
-The Terraform configuration explicitly sets `internal = false` and places the ALB in the public subnet IDs. fileciteturn68file0L2-L2
-
 ### Backend ALB
 
 The backend Application Load Balancer is:
@@ -151,11 +149,9 @@ The backend Application Load Balancer is:
 - Associated with the backend ALB security group
 - Connected to the backend target group
 
-The Terraform configuration explicitly sets `internal = true`. fileciteturn68file0L2-L2
-
 ### Target Groups
 
-Both ALBs use HTTP target groups on port 80 with health checks enabled. The baseline health checks use `/` and expect HTTP status `200`. fileciteturn68file0L2-L2
+Both ALBs use HTTP target groups on port 80 with health checks enabled. The baseline health checks use `/` and expect HTTP status `200`.
 
 ---
 
@@ -174,7 +170,7 @@ Instances are launched using a dedicated launch template containing:
 - No public IP address
 - Frontend initialization/user-data configuration
 
-The ASG registers instances with the frontend target group. fileciteturn68file0L2-L2
+The ASG registers instances with the frontend target group.
 
 ### Backend Auto Scaling Group
 
@@ -189,7 +185,7 @@ Instances are launched using a dedicated launch template containing:
 - No public IP address
 - Database secret ARN and AWS region supplied through user data
 
-The ASG registers instances with the backend target group. fileciteturn68file0L2-L2
+The ASG registers instances with the backend target group.
 
 ---
 
@@ -211,11 +207,11 @@ Baseline configuration includes:
 - Backup retention: 7 days
 - Public accessibility: disabled by the deployed baseline design
 
-The database is associated with the RDS security group and a DB subnet group containing the database subnets. fileciteturn69file0L1-L2 fileciteturn72file0L1-L2
+The database is associated with the RDS security group and a DB subnet group containing the database subnets.
 
 ### DB Subnet Group
 
-The RDS subnet group uses the database subnet IDs exported by the network Terraform stack. fileciteturn69file0L2-L2
+The RDS subnet group uses the database subnet IDs exported by the network Terraform stack.
 
 ---
 
@@ -232,7 +228,7 @@ The secret contains the database connection information required by the backend 
 - Username
 - Password
 
-The backend EC2 IAM role is granted `secretsmanager:GetSecretValue` against the database secret. fileciteturn70file0L2-L2
+The backend EC2 IAM role is granted `secretsmanager:GetSecretValue` against the database secret.
 
 The backend application retrieves this information at runtime rather than storing database credentials in application source code.
 
@@ -257,7 +253,7 @@ The backend role has:
 - `AmazonSSMManagedInstanceCore`
 - Restricted `secretsmanager:GetSecretValue` access to the database secret
 
-The separate roles provide a distinct IAM identity for each application tier. fileciteturn70file0L2-L2
+The separate roles provide a distinct IAM identity for each application tier.
 
 ---
 
