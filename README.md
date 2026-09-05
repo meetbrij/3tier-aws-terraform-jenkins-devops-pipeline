@@ -31,7 +31,7 @@ The project is designed as a practical cloud/DevOps portfolio implementation, wi
                              │
                     ┌────────▼─────────┐
                     │ Frontend ASG     │
-                    │ EC2 + Nginx     │
+                    │ EC2 + Nginx      │
                     └────────┬─────────┘
                              │
                              ▼
