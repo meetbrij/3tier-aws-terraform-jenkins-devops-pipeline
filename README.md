@@ -113,16 +113,6 @@ Kubernetes and container-based architectures will instead be explored in the sub
 
 The appropriate architecture should be selected based on the application's characteristics, operational requirements, scale, deployment model, and organizational maturity.
 
-This portfolio intentionally demonstrates both approaches:
-
-**Project 1 — VM-based AWS architecture**
-
-`Terraform → Packer → EC2 → Auto Scaling → ALB`
-
-**Later projects — Containerized platform**
-
-`Docker → EKS → ArgoCD → GitOps`
-
 ---
 
 ## Key Components
