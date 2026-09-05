@@ -103,7 +103,7 @@ build {
 
       "sudo dnf update -y",
 
-      "sudo dnf install -y httpd php php-fpm php-mysqli php-json php-mbstring php-cli php-curl php-xml git unzip",
+      "sudo dnf install -y httpd php php-fpm php-mysqli php-json php-mbstring php-cli php-curl php-xml git unzip mariadb105",
 
       "sudo systemctl enable httpd",
 
