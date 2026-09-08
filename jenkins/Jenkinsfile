@@ -111,7 +111,7 @@ pipeline {
                     env.FRONTEND_SUBNET_ID = sh(
                         script: '''
                             cd terraform/network
-                            terraform output -json web_public_subnet_ids | jq -r '.[0]'
+                            terraform output -json public_subnet_ids | jq -r '.[0]'
                         ''',
                         returnStdout: true
                     ).trim()
