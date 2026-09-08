@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code...'
+                checkout scm
+            }
+        }
+
+        stage('Verify Terraform') {
+            steps {
+                sh '''
+                    echo "Terraform version:"
+                    terraform version
+
+                    echo "Validating network Terraform configuration..."
+                    cd terraform/network
+                    terraform validate
+                '''
+            }
+        }
+
+        stage('Verify Packer') {
+            steps {
+                sh '''
+                    echo "Packer version:"
+                    packer version
+                '''
+            }
+        }
+
+        stage('Verify AWS Access') {
+            steps {
+                sh '''
+                    echo "AWS identity:"
+                    aws sts get-caller-identity
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Jenkins foundation verification completed successfully!'
+        }
+
+        failure {
+            echo 'Jenkins foundation verification failed.'
+        }
+    }
+}
