@@ -179,17 +179,15 @@ pipeline {
 
                         echo "Extracting Backend AMI ID..."
 
-                        BACKEND_ARTIFACT_ID=$(grep 'artifact,0,id,' backend-packer.log | tail -1 | cut -d',' -f5)
+                        BACKEND_ARTIFACT_ID=$(grep 'artifact,0,id,' backend-packer.log | tail -1 | cut -d',' -f6)
 
                         test -n "${BACKEND_ARTIFACT_ID}"
 
                         BACKEND_AMI_ID=$(echo "${BACKEND_ARTIFACT_ID}" | cut -d: -f2)
 
-                        test -n "${BACKEND_AMI_ID}"
+                        echo "${BACKEND_AMI_ID}" | grep -Eq '^ami-[a-zA-Z0-9]+$'
 
                         echo "${BACKEND_AMI_ID}" > backend_ami.txt
-
-                        echo "Backend AMI ID: ${BACKEND_AMI_ID}"
 
                         echo "Backend AMI ID: ${BACKEND_AMI_ID}"
                     '''
@@ -277,13 +275,13 @@ pipeline {
 
                         echo "Extracting Frontend AMI ID..."
 
-                        FRONTEND_ARTIFACT_ID=$(grep 'artifact,0,id,' frontend-packer.log | tail -1 | cut -d',' -f5)
+                        FRONTEND_ARTIFACT_ID=$(grep 'artifact,0,id,' frontend-packer.log | tail -1 | cut -d',' -f6)
 
                         test -n "${FRONTEND_ARTIFACT_ID}"
 
                         FRONTEND_AMI_ID=$(echo "${FRONTEND_ARTIFACT_ID}" | cut -d: -f2)
 
-                        test -n "${FRONTEND_AMI_ID}"
+                        echo "${FRONTEND_AMI_ID}" | grep -Eq '^ami-[a-zA-Z0-9]+$'
 
                         echo "${FRONTEND_AMI_ID}" > frontend_ami.txt
 
