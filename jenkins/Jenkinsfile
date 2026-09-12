@@ -56,6 +56,24 @@ pipeline {
                         set -e
 
                         terraform init -input=false
+
+                        # A prior interrupted cleanup can leave this secret in AWS
+                        # while it is absent from the remote Terraform state. Import it
+                        # before planning so Terraform reconciles it instead of trying
+                        # to create a duplicate.
+                        if ! terraform state show aws_secretsmanager_secret.db_credentials > /dev/null 2>&1; then
+                          DB_SECRET_NAME="${PROJECT_NAME}/${ENVIRONMENT}/database"
+
+                          if aws secretsmanager describe-secret \
+                            --secret-id "${DB_SECRET_NAME}" \
+                            --region "${AWS_REGION}" > /dev/null 2>&1; then
+                            echo "Importing existing database secret into Terraform state..."
+                            terraform import -input=false \
+                              aws_secretsmanager_secret.db_credentials \
+                              "${DB_SECRET_NAME}"
+                          fi
+                        fi
+
                         terraform validate
 
                         terraform apply \
