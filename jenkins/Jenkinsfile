@@ -1,0 +1,417 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION          = 'us-east-1'
+        PROJECT_NAME        = 'three-tier-app'
+        ENVIRONMENT         = 'dev'
+        TERRAFORM_STATE_BUCKET = '3tier-aws-terraform-jenkins-devops-pipeline'
+
+        FRONTEND_AMI_FILE   = 'terraform/compute/ami_ids/frontend_ami.txt'
+        BACKEND_AMI_FILE    = 'terraform/compute/ami_ids/backend_ami.txt'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Checking out infrastructure repository...'
+                checkout scm
+            }
+        }
+
+        stage('Validate Tools') {
+            steps {
+                sh '''
+                    set -e
+
+                    echo "Terraform:"
+                    terraform version
+
+                    echo "Packer:"
+                    packer version
+
+                    echo "AWS:"
+                    aws --version
+
+                    echo "AWS Identity:"
+                    aws sts get-caller-identity
+                '''
+            }
+        }
+
+        stage('Terraform - Network') {
+            steps {
+                dir('terraform/network') {
+                    script {
+                        env.JENKINS_PUBLIC_IP = sh(
+                            script: '''
+                                curl -s https://checkip.amazonaws.com
+                            ''',
+                            returnStdout: true
+                        ).trim()
+                    }
+
+                    sh '''
+                        set -e
+
+                        terraform init -input=false
+
+                        terraform validate
+
+                        terraform apply \
+                        -auto-approve \
+                        -input=false \
+                        -var="aws_region=${AWS_REGION}" \
+                        -var="environment=${ENVIRONMENT}" \
+                        -var="project_name=${PROJECT_NAME}" \
+                        -var='web_public_subnets=["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]' \
+                        -var='web_private_subnets=["10.0.11.0/24","10.0.12.0/24","10.0.13.0/24"]' \
+                        -var='app_private_subnets=["10.0.21.0/24","10.0.22.0/24","10.0.23.0/24"]' \
+                        -var='database_subnets=["10.0.31.0/24","10.0.32.0/24","10.0.33.0/24"]' \
+                        -var='availability_zones=["us-east-1a","us-east-1b","us-east-1c"]' \
+                        -var="packer_ssh_cidr=${JENKINS_PUBLIC_IP}/32"
+                    '''
+                }
+            }
+        }
+
+        stage('Terraform - Database') {
+            steps {
+                dir('terraform/database') {
+                    sh '''
+                        set -e
+
+                        terraform init -input=false
+
+                        # A prior interrupted cleanup can leave this secret in AWS
+                        # while it is absent from the remote Terraform state. Import it
+                        # before planning so Terraform reconciles it instead of trying
+                        # to create a duplicate.
+                        DB_SECRET_NAME="${PROJECT_NAME}/${ENVIRONMENT}/database"
+                        if ! terraform state show aws_secretsmanager_secret.db_credentials > /dev/null 2>&1; then
+
+                          if aws secretsmanager describe-secret \
+                            --secret-id "${DB_SECRET_NAME}" \
+                            --region "${AWS_REGION}" > /dev/null 2>&1; then
+                            echo "Importing existing database secret into Terraform state..."
+                            
+                            DB_SECRET_ARN=$(aws secretsmanager describe-secret \
+                            --secret-id "$DB_SECRET_NAME" \
+                            --region "$AWS_REGION" \
+                            --query 'ARN' \
+                            --output text)
+
+                            echo "Database secret ARN: $DB_SECRET_ARN"
+
+                            terraform import -input=false \
+                              -var="aws_region=${AWS_REGION}" \
+                              -var="environment=${ENVIRONMENT}" \
+                              -var="project_name=${PROJECT_NAME}" \
+                              -var="terraform_state_bucket=${TERRAFORM_STATE_BUCKET}" \
+                              aws_secretsmanager_secret.db_credentials \
+                              "$DB_SECRET_ARN"
+                          fi
+                        fi
+
+                        terraform validate
+
+                        terraform apply \
+                          -auto-approve \
+                          -input=false \
+                          -var="aws_region=${AWS_REGION}" \
+                          -var="environment=${ENVIRONMENT}" \
+                          -var="project_name=${PROJECT_NAME}" \
+                          -var="terraform_state_bucket=${TERRAFORM_STATE_BUCKET}"
+                    '''
+                }
+            }
+        }
+
+        stage('Discover AWS Configuration') {
+            steps {
+                script {
+                    env.VPC_ID = sh(
+                        script: '''
+                            cd terraform/network
+                            terraform output -raw vpc_id
+                        ''',
+                        returnStdout: true
+                    ).trim()
+
+                    env.BACKEND_SUBNET_ID = sh(
+                        script: '''
+                            cd terraform/network
+                            terraform output -json public_subnet_ids | jq -r '.[0]'
+                        ''',
+                        returnStdout: true
+                    ).trim()
+
+                    env.FRONTEND_SUBNET_ID = sh(
+                        script: '''
+                            cd terraform/network
+                            terraform output -json public_subnet_ids | jq -r '.[0]'
+                        ''',
+                        returnStdout: true
+                    ).trim()
+
+                    env.PACKER_SG_ID = sh(
+                        script: '''
+                            cd terraform/network
+                            terraform output -raw packer_builder_sg_id
+                        ''',
+                        returnStdout: true
+                    ).trim()
+                }
+
+                sh '''
+                    echo "VPC: ${VPC_ID}"
+                    echo "Backend subnet: ${BACKEND_SUBNET_ID}"
+                    echo "Frontend subnet: ${FRONTEND_SUBNET_ID}"
+                    echo "Packer SG: ${PACKER_SG_ID}"
+                '''
+            }
+        }
+
+        stage('Discover Source AMI') {
+            steps {
+                script {
+                    env.SOURCE_AMI = sh(
+                        script: '''
+                            aws ssm get-parameter \
+                              --name /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 \
+                              --region ${AWS_REGION} \
+                              --query 'Parameter.Value' \
+                              --output text
+                        ''',
+                        returnStdout: true
+                    ).trim()
+                }
+
+                echo "Source AMI: ${SOURCE_AMI}"
+            }
+        }
+
+        stage('Packer - Backend AMI') {
+            steps {
+                dir('packer/backend') {
+                    sh '''
+                        set -e
+
+                        packer init .
+
+                        packer build \
+                        -machine-readable \
+                        -var "aws_region=${AWS_REGION}" \
+                        -var "source_ami=${SOURCE_AMI}" \
+                        -var "vpc_id=${VPC_ID}" \
+                        -var "subnet_id=${BACKEND_SUBNET_ID}" \
+                        -var "security_group_id=${PACKER_SG_ID}" \
+                        backend.pkr.hcl | tee backend-packer.log
+
+                        echo "Extracting Backend AMI ID..."
+
+                        BACKEND_ARTIFACT_ID=$(grep 'artifact,0,id,' backend-packer.log | tail -1 | cut -d',' -f6)
+
+                        test -n "${BACKEND_ARTIFACT_ID}"
+
+                        BACKEND_AMI_ID=$(echo "${BACKEND_ARTIFACT_ID}" | cut -d: -f2)
+
+                        echo "${BACKEND_AMI_ID}" | grep -Eq '^ami-[a-zA-Z0-9]+$'
+
+                        echo "${BACKEND_AMI_ID}" > backend_ami.txt
+
+                        echo "Backend AMI ID: ${BACKEND_AMI_ID}"
+                    '''
+                }
+
+                script {
+                    env.BACKEND_AMI_ID = readFile(
+                        'packer/backend/backend_ami.txt'
+                    ).trim()
+                }
+
+                echo "Backend AMI: ${BACKEND_AMI_ID}"
+            }
+        }
+
+        stage('Bootstrap Compute') {
+            steps {
+                sh '''
+                    set -e
+
+                    mkdir -p terraform/compute/ami_ids
+
+                    # Backend uses the newly created AMI.
+                    echo "${BACKEND_AMI_ID}" \
+                      > ${BACKEND_AMI_FILE}
+
+                    # Temporary frontend AMI so Terraform can create
+                    # the frontend/backend ALBs and backend infrastructure.
+                    echo "${SOURCE_AMI}" \
+                      > ${FRONTEND_AMI_FILE}
+                '''
+
+                dir('terraform/compute') {
+                    sh '''
+                        set -e
+
+                        terraform init -input=false
+                        terraform validate
+
+                        terraform apply \
+                          -auto-approve \
+                          -input=false \
+                          -var="aws_region=${AWS_REGION}" \
+                          -var="environment=${ENVIRONMENT}" \
+                          -var="project_name=${PROJECT_NAME}" \
+                          -var="terraform_state_bucket=${TERRAFORM_STATE_BUCKET}"
+                    '''
+                }
+            }
+        }
+
+        stage('Get Backend ALB DNS') {
+            steps {
+                script {
+                    env.BACKEND_ALB_DNS = sh(
+                        script: '''
+                            cd terraform/compute
+                            terraform output -raw backend_alb_dns_name
+                        ''',
+                        returnStdout: true
+                    ).trim()
+                }
+
+                echo "Backend ALB: ${BACKEND_ALB_DNS}"
+            }
+        }
+
+        stage('Packer - Frontend AMI') {
+            steps {
+                dir('packer/frontend') {
+                    sh '''
+                        set -e
+
+                        packer init .
+
+                        packer build \
+                        -machine-readable \
+                        -var "aws_region=${AWS_REGION}" \
+                        -var "source_ami=${SOURCE_AMI}" \
+                        -var "vpc_id=${VPC_ID}" \
+                        -var "subnet_id=${FRONTEND_SUBNET_ID}" \
+                        -var "security_group_id=${PACKER_SG_ID}" \
+                        -var "backend_alb_dns_name=${BACKEND_ALB_DNS}" \
+                        frontend.pkr.hcl | tee frontend-packer.log
+
+                        echo "Extracting Frontend AMI ID..."
+
+                        FRONTEND_ARTIFACT_ID=$(grep 'artifact,0,id,' frontend-packer.log | tail -1 | cut -d',' -f6)
+
+                        test -n "${FRONTEND_ARTIFACT_ID}"
+
+                        FRONTEND_AMI_ID=$(echo "${FRONTEND_ARTIFACT_ID}" | cut -d: -f2)
+
+                        echo "${FRONTEND_AMI_ID}" | grep -Eq '^ami-[a-zA-Z0-9]+$'
+
+                        echo "${FRONTEND_AMI_ID}" > frontend_ami.txt
+
+                        echo "Frontend AMI ID: ${FRONTEND_AMI_ID}"
+                    '''
+                }
+
+                script {
+                    env.FRONTEND_AMI_ID = readFile(
+                        'packer/frontend/frontend_ami.txt'
+                    ).trim()
+                }
+
+                echo "Frontend AMI: ${FRONTEND_AMI_ID}"
+            }
+        }
+
+        stage('Deploy Final Compute') {
+            steps {
+                sh '''
+                    set -e
+
+                    echo "${FRONTEND_AMI_ID}" \
+                      > ${FRONTEND_AMI_FILE}
+
+                    echo "${BACKEND_AMI_ID}" \
+                      > ${BACKEND_AMI_FILE}
+                '''
+
+                dir('terraform/compute') {
+                    sh '''
+                        set -e
+
+                        terraform init -input=false
+
+                        terraform apply \
+                          -auto-approve \
+                          -input=false \
+                          -var="aws_region=${AWS_REGION}" \
+                          -var="environment=${ENVIRONMENT}" \
+                          -var="project_name=${PROJECT_NAME}" \
+                          -var="terraform_state_bucket=${TERRAFORM_STATE_BUCKET}"
+                    '''
+                }
+            }
+        }
+
+        stage('Deployment Verification') {
+            steps {
+                script {
+                    env.FRONTEND_ALB_DNS = sh(
+                        script: '''
+                            cd terraform/compute
+                            terraform output -raw frontend_alb_dns_name
+                        ''',
+                        returnStdout: true
+                    ).trim()
+                }
+
+                sh '''
+                    echo "=========================================="
+                    echo "Deployment completed"
+                    echo "=========================================="
+                    echo "Frontend ALB:"
+                    echo "http://${FRONTEND_ALB_DNS}"
+                    echo "=========================================="
+
+                    echo "Testing frontend endpoint..."
+
+                    for i in {1..10}; do
+                        if curl -sSf --max-time 10 \
+                            "http://${FRONTEND_ALB_DNS}" > /dev/null; then
+                            echo "Frontend is responding."
+                            exit 0
+                        fi
+
+                        echo "Waiting for application to become healthy..."
+                        sleep 30
+                    done
+
+                    echo "Frontend did not become healthy."
+                    exit 1
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Three-tier application deployment completed successfully.'
+        }
+
+        failure {
+            echo 'Three-tier application deployment failed.'
+        }
+
+        always {
+            echo 'Jenkins pipeline completed.'
+        }
+    }
+}

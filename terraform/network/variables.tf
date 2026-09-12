@@ -43,3 +43,8 @@ variable "project_name" {
   description = "Project name"
   type        = string
 } 
+
+variable "packer_ssh_cidr" {
+  description = "CIDR allowed to SSH to temporary Packer builder instances"
+  type        = string
+}

@@ -67,3 +67,8 @@ output "rds_sg_id" {
   description = "ID of the RDS security group"
   value       = aws_security_group.rds.id
 }
+
+output "packer_builder_sg_id" {
+  description = "Security group ID for Packer builder instances"
+  value       = aws_security_group.packer_builder.id
+}

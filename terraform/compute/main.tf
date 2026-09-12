@@ -66,6 +66,17 @@ resource "aws_autoscaling_group" "frontend" {
 
   target_group_arns = [aws_lb_target_group.frontend.arn]
 
+  instance_refresh {
+    strategy = "Rolling"
+
+    triggers = ["launch_template"]
+
+    preferences {
+      min_healthy_percentage = 50
+      instance_warmup        = 120
+    }
+  }
+
   tag {
     key                 = "Name"
     value               = "${var.project_name}-frontend"
@@ -175,6 +186,17 @@ resource "aws_autoscaling_group" "backend" {
   }
 
   target_group_arns = [aws_lb_target_group.backend.arn]
+
+  instance_refresh {
+    strategy = "Rolling"
+
+    triggers = ["launch_template"]
+
+    preferences {
+      min_healthy_percentage = 50
+      instance_warmup        = 120
+    }
+  }
 
   tag {
     key                 = "Name"

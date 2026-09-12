@@ -302,3 +302,29 @@ resource "aws_security_group" "rds" {
     Environment = var.environment
   }
 }
+
+resource "aws_security_group" "packer_builder" {
+  name        = "${var.project_name}-packer-builder-sg"
+  description = "Security group for temporary Packer builder instances"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+    description = "SSH from Jenkins"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.packer_ssh_cidr]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name        = "${var.project_name}-packer-builder-sg"
+    Environment = var.environment
+  }
+}
