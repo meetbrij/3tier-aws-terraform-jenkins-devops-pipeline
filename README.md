@@ -254,6 +254,29 @@ The detailed deployment workflow is documented in [`docs/deployment.md`](docs/de
 
 ---
 
+```text
+                           GitHub
+                            │
+                            ▼
+                            Jenkins
+                            │
+                            ├──────────────┐
+                            ▼              ▼
+                         Terraform       Packer
+                            │              │
+                            └──────┬───────┘
+                                   ▼
+                                  AWS
+                                   │
+                            ┌──────┴────────┐
+                            │               │
+                            ALB             RDS
+                            │
+                            ASG
+                            │
+                            EC2
+```
+
 ## Initial Setup
 
 Before deploying the project for the first time, install and configure the required tools.
@@ -474,41 +497,68 @@ The project documentation is organized by architectural concern:
 
 ---
 
-## Project Lifecycle
+## Jenkins CI/CD Pipeline
 
-### Current baseline
+Jenkins is used as the automation and orchestration layer for the infrastructure deployment workflow.
 
-The working infrastructure is frozen at:
+The pipeline integrates **GitHub, Terraform, Packer, and AWS** to automate the provisioning and deployment of the 3-tier application infrastructure.
+
+### Jenkins Responsibilities
+
+The Jenkins pipeline is responsible for:
+
+- Checking out infrastructure code from GitHub
+- Validating required tools and configuration
+- Provisioning the AWS networking layer using Terraform
+- Provisioning the database layer using Terraform
+- Building immutable application AMIs using Packer
+- Creating the initial compute infrastructure
+- Building the final frontend AMI after the backend ALB is available
+- Updating the compute layer with the final AMIs
+- Managing Terraform remote state stored in Amazon S3
+- Orchestrating the complete infrastructure deployment workflow
+
+### Pipeline Flow
 
 ```text
-baseline-v1.0
+GitHub
+   │
+   ▼
+Jenkins
+   │
+   ├── Checkout
+   │
+   ├── Validate Tools
+   │
+   ├── Terraform → Network
+   │
+   ├── Terraform → Database
+   │
+   ├── Packer → Backend AMI
+   │
+   ├── Terraform → Bootstrap Compute
+   │
+   ├── Packer → Frontend AMI
+   │
+   └── Terraform → Final Compute Deployment
+                         │
+                         ▼
+                    AWS 3-Tier
+                    Architecture
 ```
 
-This represents the current documented architecture and deployment model.
-
-### Next phase — Jenkins
-
-Jenkins will become the orchestration layer for the DevOps/DevSecOps workflow.
-
-The planned pipeline will connect the application and infrastructure repositories and automate activities such as:
-
-```text
-Checkout
-   ↓
-Validation
-   ↓
-Packer Build
-   ↓
-AMI Capture
-   ↓
-Terraform Plan
-   ↓
-Terraform Apply
-   ↓
-Deployment Validation
-```
-
-Jenkins automation is planned work and is not part of the current baseline.
+## Jenkins ↔ AWS Integration
+Jenkins runs on a dedicated EC2 instance and uses an IAM role to authenticate with AWS services without storing long-lived AWS access keys.
+The pipeline interacts with services including:
+- Amazon VPC
+- Amazon EC2
+- Application Load Balancer
+- Auto Scaling
+- Amazon RDS
+- Amazon S3
+- AWS Secrets Manager
+- AWS Systems Manager
+- Amazon ECR/other AWS services as required by future pipeline extensions
 
 ---
 
