@@ -96,6 +96,10 @@ pipeline {
                             --region "${AWS_REGION}" > /dev/null 2>&1; then
                             echo "Importing existing database secret into Terraform state..."
                             terraform import -input=false \
+                              -var="aws_region=${AWS_REGION}" \
+                              -var="environment=${ENVIRONMENT}" \
+                              -var="project_name=${PROJECT_NAME}" \
+                              -var="terraform_state_bucket=${TERRAFORM_STATE_BUCKET}" \
                               aws_secretsmanager_secret.db_credentials \
                               "${DB_SECRET_NAME}"
                           fi
